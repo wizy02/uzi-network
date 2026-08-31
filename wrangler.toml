@@ -1,0 +1,16 @@
+name = "uzi-network"
+compatibility_date = "2024-11-01"
+pages_build_output_dir = "./dist"
+
+[build]
+  command = "npm run build"
+
+[functions]
+  # Match everything under /api to a Cloudflare Pages Function
+  # (the function lives in ./functions/api/subscribe.js)
+  directory = "./functions"
+
+[vars]
+  # Add non-secret vars here. Secrets go in the Cloudflare dashboard under
+  # Settings → Environment variables.
+  SITE_NAME = "Uzi Network"

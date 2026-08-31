@@ -1,0 +1,106 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #0d0f14;
+    --bg-soft: #1a1d25;
+    --surface: #1a1d25;
+    --surface-2: #2a2f3a;
+    --border: #2a2f3a;
+    --text: #f7f8fa;
+    --text-muted: #8e98a8;
+    --brand: #2f6ff5;
+    --accent: #ff5b3a;
+  }
+
+  html {
+    background: var(--bg);
+    color: var(--text);
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply font-sans antialiased;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+
+  ::selection {
+    background-color: var(--accent);
+    color: #0d0f14;
+  }
+
+  /* Smooth focus rings */
+  :focus-visible {
+    @apply outline-none ring-2 ring-brand-500 ring-offset-2 ring-offset-ink-900;
+  }
+}
+
+@layer components {
+  .container-x { @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8; }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold transition active:translate-y-px disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .btn-primary { @apply btn bg-accent text-ink-900 hover:bg-accent/90; }
+  .btn-secondary { @apply btn bg-ink-700 text-ink-50 hover:bg-ink-600; }
+  .btn-ghost { @apply btn bg-transparent text-ink-100 hover:bg-ink-800; }
+
+  .chip {
+    @apply inline-flex items-center gap-1 rounded-full bg-ink-800 px-2.5 py-0.5 text-xs font-medium text-ink-200;
+  }
+
+  .card {
+    @apply rounded-2xl bg-ink-800/60 ring-1 ring-ink-700/80 transition hover:ring-ink-600;
+  }
+
+  .star { @apply text-yellow-400; }
+  .star-empty { @apply text-ink-600; }
+
+  .prose-blog {
+    @apply max-w-3xl text-ink-100 leading-relaxed;
+  }
+  .prose-blog h2 { @apply mt-10 mb-4 text-2xl font-bold text-white; }
+  .prose-blog h3 { @apply mt-8 mb-3 text-xl font-semibold text-white; }
+  .prose-blog p  { @apply mb-5 text-ink-200; }
+  .prose-blog ul { @apply mb-5 list-disc pl-6 text-ink-200; }
+  .prose-blog ol { @apply mb-5 list-decimal pl-6 text-ink-200; }
+  .prose-blog li { @apply mb-2; }
+  .prose-blog a  { @apply text-brand-300 underline underline-offset-4 hover:text-brand-200; }
+  .prose-blog blockquote {
+    @apply my-6 border-l-4 border-accent bg-ink-800/40 py-3 pl-5 pr-4 italic text-ink-200;
+  }
+  .prose-blog code {
+    @apply rounded bg-ink-800 px-1.5 py-0.5 text-sm text-brand-200;
+  }
+  .prose-blog pre {
+    @apply my-6 overflow-x-auto rounded-lg bg-ink-900 p-4 text-sm text-ink-100 ring-1 ring-ink-700;
+  }
+  .prose-blog pre code { @apply bg-transparent p-0 text-ink-100; }
+  .prose-blog table { @apply my-6 w-full text-left text-sm; }
+  .prose-blog th { @apply border-b border-ink-700 px-3 py-2 font-semibold text-white; }
+  .prose-blog td { @apply border-b border-ink-700/50 px-3 py-2 text-ink-200; }
+}
+
+/* Reduce CLS for embeds */
+.aspect-video { aspect-ratio: 16 / 9; }
+.aspect-square { aspect-ratio: 1 / 1; }
+.aspect-product { aspect-ratio: 4 / 3; }
+
+/* Skeleton shimmer */
+.skeleton {
+  background: linear-gradient(90deg, #1a1d25 0%, #2a2f3a 50%, #1a1d25 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.6s infinite;
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

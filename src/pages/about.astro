@@ -1,0 +1,46 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { SITE } from '../lib/site';
+---
+
+<BaseLayout title="About" description={`About ${SITE.name}`}>
+  <article class="container-x py-12 max-w-3xl prose-blog">
+    <h1>About {SITE.name}</h1>
+    <p class="lead">
+      We're a small team that buys tech with our own money, runs it through real workflows for two weeks,
+      then tells you what worked and what didn't.
+    </p>
+
+    <h2>How we review</h2>
+    <p>
+      Every review on {SITE.name} starts with a purchase. We pay for the products. We use them for at least
+      two weeks in real conditions — not in a lab, not in a sanitized unboxing. Then we write up what happened.
+    </p>
+
+    <h2>How we make money</h2>
+    <p>
+      Two ways. <strong>Affiliate links</strong> — when you click through to a retailer from a review and buy something,
+      we may earn a small commission at no cost to you. <strong>Display ads</strong> — once we hit the traffic
+      thresholds ad networks require (typically 50K+ visits/month), we layer in display ads from networks
+      like Mediavine or Raptive. Until then, the site is clean and the affiliate links do the heavy lifting.
+    </p>
+    <p>
+      Brands never pay for placement. Brands never see a review before it goes live. PR samples are clearly marked
+      as such, and we still write the verdict we'd write if we'd paid.
+    </p>
+
+    <h2>What we cover</h2>
+    <ul>
+      <li>AI tools we keep reaching for (and the ones we deleted after a week)</li>
+      <li>Laptops, phones, wearables — the gear that actually shows up in our work</li>
+      <li>Audio gear, smart home stuff, productivity software</li>
+      <li>Platform economics and monetization research (here on the blog)</li>
+    </ul>
+
+    <h2>Who runs this</h2>
+    <p>
+      Uzi Network is run by a small group of reviewers, editors, and an ever-growing list of freelance contributors.
+      Want to pitch a review? Email <a href={`mailto:${SITE.email}`}>{SITE.email}</a>.
+    </p>
+  </article>
+</BaseLayout>

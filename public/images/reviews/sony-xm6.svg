@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <defs>
+    <linearGradient id="bg-sony-xm6" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1a1d25"/>
+      <stop offset="1" stop-color="#2a2f3a"/>
+    </linearGradient>
+    <radialGradient id="glow-sony-xm6" cx="0.3" cy="0.2" r="0.7">
+      <stop offset="0" stop-color="#1a1d25" stop-opacity="0.25"/>
+      <stop offset="1" stop-color="#1a1d25" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg-sony-xm6)"/>
+  <rect width="800" height="600" fill="url(#glow-sony-xm6)"/>
+  <rect x="40" y="40" width="720" height="520" rx="20" fill="none" stroke="#3f4654" stroke-width="2"/>
+  <text x="60" y="100" font-family="Inter,sans-serif" font-size="20" font-weight="600" fill="#ff5b3a" letter-spacing="2">UZI NETWORK · REVIEW</text>
+  <text x="60" y="170" font-family="Inter,sans-serif" font-size="48" font-weight="800" fill="#ffffff">Sony</text>
+  <foreignObject x="60" y="200" width="680" height="200">
+    <div xmlns="http://www.w3.org/1999/xhtml" style="font-family: Inter, sans-serif; font-size: 32px; font-weight: 700; color: #f7f8fa; line-height: 1.2;">Sony WH-1000XM6</div>
+  </foreignObject>
+  <rect x="60" y="500" width="80" height="32" rx="6" fill="#1a1d25"/>
+  <text x="100" y="522" text-anchor="middle" font-family="Inter,sans-serif" font-size="14" font-weight="700" fill="#0d0f14">RATED ★</text>
+</svg>

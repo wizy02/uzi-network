@@ -1,0 +1,64 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ReviewCard from '../components/ReviewCard.astro';
+import Hero from '../components/Hero.astro';
+import Newsletter from '../components/Newsletter.astro';
+import { CATEGORIES } from '../lib/site';
+
+const allReviews = await getCollection('reviews');
+const reviews = allReviews.sort((a, b) => +b.data.releaseDate - +a.data.releaseDate);
+const featured = reviews.filter(r => r.data.featured).slice(0, 3);
+const recent = reviews.slice(0, 9);
+
+function pickByCategory(slug: string, count = 3) {
+  return reviews.filter(r => r.data.category === slug).slice(0, count);
+}
+---
+
+<BaseLayout>
+  <Hero />
+
+  <!-- Featured strip -->
+  {featured.length > 0 && (
+    <section class="container-x py-10">
+      <div class="mb-5 flex items-end justify-between">
+        <h2 class="text-2xl font-bold text-white">Editor's picks</h2>
+        <a href="/reviews" class="text-sm font-medium text-brand-300 hover:text-brand-200">All reviews →</a>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {featured.map(r => <ReviewCard review={r} />)}
+      </div>
+    </section>
+  )}
+
+  <!-- Category strips -->
+  {CATEGORIES.map(cat => {
+    const items = pickByCategory(cat.slug, 3);
+    if (items.length === 0) return null;
+    return (
+      <section class="container-x py-8">
+        <div class="mb-5 flex items-end justify-between">
+          <h2 class="text-xl font-bold text-white">{cat.label}</h2>
+          <a href={`/reviews?category=${cat.slug}`} class="text-sm font-medium text-brand-300 hover:text-brand-200">More {cat.label.toLowerCase()} →</a>
+        </div>
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {items.map(r => <ReviewCard review={r} />)}
+        </div>
+      </section>
+    );
+  })}
+
+  <!-- Recent -->
+  <section class="container-x py-10">
+    <div class="mb-5 flex items-end justify-between">
+      <h2 class="text-2xl font-bold text-white">Latest reviews</h2>
+      <a href="/reviews" class="text-sm font-medium text-brand-300 hover:text-brand-200">View all →</a>
+    </div>
+    <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {recent.map(r => <ReviewCard review={r} />)}
+    </div>
+  </section>
+
+  <Newsletter />
+</BaseLayout>

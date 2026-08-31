@@ -1,0 +1,35 @@
+---
+interface Props {
+  rating: number;       // 0-5, supports 0.5 increments
+  size?: 'sm' | 'md' | 'lg';
+  showValue?: boolean;
+}
+
+const { rating, size = 'md', showValue = false } = Astro.props;
+const filled = Math.floor(rating);
+const half = rating - filled >= 0.5;
+const empty = 5 - filled - (half ? 1 : 0);
+
+const dim = size === 'sm' ? 14 : size === 'lg' ? 22 : 18;
+---
+
+<span class="inline-flex items-center gap-0.5" aria-label={`Rated ${rating} out of 5`}>
+  {Array.from({ length: filled }).map(() => (
+    <svg width={dim} height={dim} viewBox="0 0 24 24" fill="currentColor" class="text-yellow-400"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+  ))}
+  {half && (
+    <svg width={dim} height={dim} viewBox="0 0 24 24" class="text-yellow-400">
+      <defs>
+        <linearGradient id={`half-${rating}-${size}`}>
+          <stop offset="50%" stop-color="currentColor" />
+          <stop offset="50%" stop-color="#3f4654" />
+        </linearGradient>
+      </defs>
+      <path fill={`url(#half-${rating}-${size})`} d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/>
+    </svg>
+  )}
+  {Array.from({ length: empty }).map(() => (
+    <svg width={dim} height={dim} viewBox="0 0 24 24" fill="currentColor" class="text-ink-600"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87L18.18 22 12 18.56 5.82 22 7 14.14l-5-4.87 6.91-1.01z"/></svg>
+  ))}
+  {showValue && <span class="ml-1 text-sm font-semibold text-ink-200">{rating.toFixed(1)}</span>}
+</span>

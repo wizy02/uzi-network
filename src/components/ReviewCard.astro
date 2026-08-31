@@ -1,0 +1,63 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import Rating from './Rating.astro';
+
+interface Props {
+  review: CollectionEntry<'reviews'>;
+  compact?: boolean;
+}
+
+const { review, compact = false } = Astro.props;
+const { data, id } = review;
+const href = `/reviews/${id}`;
+---
+
+<a
+  href={href}
+  class:list={[
+    'card group flex flex-col overflow-hidden hover:shadow-2xl hover:shadow-ink-900/50',
+    compact ? 'h-full' : 'h-full',
+  ]}
+>
+  <div class="aspect-product relative overflow-hidden bg-ink-800">
+    {data.cover ? (
+      <img
+        src={data.cover}
+        alt={data.title}
+        loading="lazy"
+        decoding="async"
+        class="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+      />
+    ) : (
+      <div class="flex h-full w-full items-center justify-center text-ink-500">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
+      </div>
+    )}
+    {data.featured && (
+      <span class="absolute left-3 top-3 chip bg-accent/90 text-ink-900 font-semibold">Featured</span>
+    )}
+    <span class="absolute right-3 top-3 chip bg-ink-900/80 backdrop-blur">
+      {data.category.replace('-', ' ')}
+    </span>
+  </div>
+
+  <div class="flex flex-1 flex-col gap-3 p-4">
+    <div class="flex items-center justify-between text-2xs uppercase tracking-wider text-ink-400">
+      <span>{data.brand}</span>
+      <span>{data.releaseDate.toLocaleDateString('en-US', { month: 'short', year: 'numeric' })}</span>
+    </div>
+
+    <h3 class="text-base font-bold text-white leading-snug line-clamp-2 group-hover:text-accent transition">
+      {data.title}
+    </h3>
+
+    {!compact && data.tldr && (
+      <p class="text-sm text-ink-300 line-clamp-2">{data.tldr}</p>
+    )}
+
+    <div class="mt-auto flex items-center justify-between pt-2">
+      <Rating rating={data.rating} size="sm" />
+      <span class="text-sm font-bold text-white">{data.price}</span>
+    </div>
+  </div>
+</a>

@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ReviewCard from '../../components/ReviewCard.astro';
+import { CATEGORIES } from '../../lib/site';
+
+const all = await getCollection('reviews');
+const sorted = all.sort((a, b) => +b.data.releaseDate - +a.data.releaseDate);
+
+const url = new URL(Astro.request.url);
+const activeCategory = url.searchParams.get('category');
+
+const filtered = activeCategory
+  ? sorted.filter(r => r.data.category === activeCategory)
+  : sorted;
+
+const byCat = activeCategory ? null : (() => {
+  const m = new Map<string, typeof sorted>();
+  for (const cat of CATEGORIES) {
+    m.set(cat.slug, sorted.filter(r => r.data.category === cat.slug));
+  }
+  return m;
+})();
+---
+
+<BaseLayout title="All Reviews" description="Every Uzi Network review, organized by category.">
+  <section class="container-x py-10">
+    <h1 class="text-4xl font-bold text-white">All Reviews</h1>
+    <p class="mt-2 max-w-2xl text-ink-300">
+      Browse every review we've published. Filter by category, sort by newest, and click straight through to buy.
+    </p>
+
+    <!-- Category filter -->
+    <div class="mt-6 flex flex-wrap gap-2">
+      <a
+        href="/reviews"
+        class:list={['chip text-sm', !activeCategory ? 'bg-accent text-ink-900' : '']}
+      >All</a>
+      {CATEGORIES.map(c => (
+        <a
+          href={`/reviews?category=${c.slug}`}
+          class:list={['chip text-sm', activeCategory === c.slug ? 'bg-accent text-ink-900' : '']}
+        >{c.label}</a>
+      ))}
+    </div>
+
+    {filtered.length === 0 && (
+      <div class="mt-12 rounded-xl border border-ink-700 bg-ink-800/40 p-8 text-center text-ink-300">
+        No reviews in this category yet. Check back soon.
+      </div>
+    )}
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {filtered.map(r => <ReviewCard review={r} />)}
+    </div>
+  </section>
+</BaseLayout>

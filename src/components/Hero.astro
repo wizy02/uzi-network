@@ -1,0 +1,15 @@
+---
+const props = Astro.props as { title?: string; subtitle?: string };
+---
+
+<section class="border-b border-ink-800 bg-gradient-to-b from-ink-800/40 to-transparent">
+  <div class="container-x py-12 sm:py-16">
+    <p class="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Uzi Network</p>
+    <h1 class="mt-2 max-w-3xl text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+      {props.title ?? 'Real reviews. Real tests. Real tech.'}
+    </h1>
+    <p class="mt-4 max-w-2xl text-lg text-ink-300">
+      {props.subtitle ?? 'Hands-on reviews of the tech and AI tools that actually move the needle. No fluff, no paid placement, no AI-generated filler.'}
+    </p>
+  </div>
+</section>

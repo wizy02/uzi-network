@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d0f14"/>
+      <stop offset="1" stop-color="#152f7e"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <g transform="translate(80 110)">
+    <rect width="80" height="80" rx="16" fill="#ff5b3a"/>
+    <text x="40" y="58" text-anchor="middle" font-family="Inter,sans-serif" font-size="48" font-weight="900" fill="#0d0f14">U</text>
+    <text x="110" y="60" font-family="Inter,sans-serif" font-size="44" font-weight="800" fill="#ffffff">Uzi Network</text>
+  </g>
+  <text x="80" y="350" font-family="Inter,sans-serif" font-size="84" font-weight="900" fill="#ffffff">Real reviews.</text>
+  <text x="80" y="445" font-family="Inter,sans-serif" font-size="84" font-weight="900" fill="#ff5b3a">Real tests.</text>
+  <text x="80" y="540" font-family="Inter,sans-serif" font-size="84" font-weight="900" fill="#ffffff">Real tech.</text>
+  <text x="80" y="595" font-family="Inter,sans-serif" font-size="24" font-weight="500" fill="#8e98a8">uzi.network.store</text>
+</svg>

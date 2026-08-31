@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { AFFILIATE_DISCLOSURE } from '../lib/site';
+---
+
+<BaseLayout title="Affiliate Disclosure" description="How Uzi Network uses affiliate links and stays independent.">
+  <article class="container-x py-12 max-w-3xl prose-blog">
+    <h1>Affiliate Disclosure</h1>
+    <p class="text-ink-400 text-sm">Last updated: {new Date().toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+
+    <p>{AFFILIATE_DISCLOSURE}</p>
+
+    <h2>What this means in practice</h2>
+    <ul>
+      <li>Every review that includes affiliate links is clearly labeled in the price/buy box.</li>
+      <li>Clicking an affiliate link sets a cookie in your browser that tells the retailer you came from us.</li>
+      <li>If you buy something in that session, we may earn a commission — typically 1-10% of the sale.</li>
+      <li>You pay exactly the same price. There is no upcharge, no premium, no markup.</li>
+    </ul>
+
+    <h2>Networks we participate in</h2>
+    <ul>
+      <li><strong>Amazon Associates</strong> — for any product on Amazon</li>
+      <li><strong>Impact</strong> — for SaaS tools and software</li>
+      <li><strong>PartnerStack</strong> — for B2B SaaS affiliate programs</li>
+      <li><strong>Direct programs</strong> — when a brand runs their own affiliate program</li>
+    </ul>
+
+    <h2>Display advertising</h2>
+    <p>
+      Once we cross the traffic threshold (~50K visits/month), we plan to layer in display ads from networks like
+      <strong>Mediavine</strong> or <strong>Raptive</strong>. Until then, we run zero display ads — the site is
+      ad-free and the only way we make money is via affiliate links.
+    </p>
+
+    <h2>Editorial independence</h2>
+    <p>
+      Brands cannot pay to be reviewed, cannot review their own copy, and cannot see a draft before publication.
+      If a brand sends us a sample, we disclose it in the review's "How we got it" section. Even then, we write
+      the verdict we'd write if we'd paid full price out of pocket.
+    </p>
+
+    <h2>Questions?</h2>
+    <p>
+      Email <a href="mailto:hello@uzi.network.store">hello@uzi.network.store</a> if you have questions about a
+      specific relationship or want to flag something that looks off.
+    </p>
+  </article>
+</BaseLayout>
