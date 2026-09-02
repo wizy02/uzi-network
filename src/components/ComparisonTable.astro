@@ -1,0 +1,36 @@
+---
+interface Props {
+  products: Array<{
+    name: string;
+    price: string;
+    rating: number;
+    bestFor: string;
+  }>;
+}
+
+const { products } = Astro.props;
+---
+
+<div class="not-prose my-8 overflow-x-auto">
+  <table class="w-full text-left border-collapse rounded-xl overflow-hidden">
+    <thead class="bg-ink-800 text-ink-200">
+      <tr>
+        <th class="p-4 font-semibold">Product</th>
+        <th class="p-4 font-semibold">Price</th>
+        <th class="p-4 font-semibold">Rating</th>
+        <th class="p-4 font-semibold">Best for</th>
+      </tr>
+    </thead>
+    <tbody class="bg-ink-900/30">
+      {products.map((p, i) => (
+        <tr class={i % 2 === 0 ? 'bg-ink-900/30' : 'bg-ink-900/10'}>
+          <td class="p-4 font-semibold text-uzi-500">{p.name}</td>
+          <td class="p-4 text-ink-200">{p.price}</td>
+          <td class="p-4 text-amber-400">{p.rating}/5</td>
+          <td class="p-4 text-ink-300">{p.bestFor}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+  <p class="text-xs text-ink-500 mt-3">Comparison based on hands-on testing and aggregated user reviews.</p>
+</div>

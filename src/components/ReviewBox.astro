@@ -1,0 +1,53 @@
+---
+import type { Product } from '../lib/types';
+
+interface Props {
+  product: string;
+  price: string;
+  rating: number;
+  affiliateUrl: string;
+  network: string;
+  cta?: string;
+  features?: string[];
+}
+
+const { product, price, rating, affiliateUrl, network, cta = 'Check price', features = [] } = Astro.props;
+const fullStars = Math.floor(rating);
+const hasHalf = rating - fullStars >= 0.5;
+---
+
+<aside class="buy-box not-prose my-8 rounded-2xl border border-ink-700 bg-ink-800/50 p-6 shadow-lg">
+  <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+    <div>
+      <div class="text-xs uppercase tracking-wider text-ink-400 mb-1">{network} affiliate</div>
+      <div class="text-2xl font-bold text-ink-50">{product}</div>
+      <div class="text-3xl font-black text-uzi-500 mt-2">{price}</div>
+      <div class="flex items-center mt-2 text-amber-400">
+        {Array.from({ length: 5 }).map((_, i) => (
+          <span>
+            {i < fullStars ? '★' : (i === fullStars && hasHalf ? '⯨' : '☆')}
+          </span>
+        ))}
+        <span class="ml-2 text-ink-400 text-sm">{rating}/5</span>
+      </div>
+    </div>
+    <a
+      href={affiliateUrl}
+      rel="sponsored noopener"
+      target="_blank"
+      class="inline-block bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-4 px-8 rounded-xl text-center transition-colors text-lg shadow-md hover:shadow-lg"
+    >
+      {cta} →
+    </a>
+  </div>
+  {features.length > 0 && (
+    <div class="mt-4 pt-4 border-t border-ink-700 flex flex-wrap gap-2">
+      {features.map(f => (
+        <span class="text-xs bg-ink-900/50 text-ink-300 px-3 py-1 rounded-full">{f}</span>
+      ))}
+    </div>
+  )}
+  <div class="mt-4 text-xs text-ink-500">
+    Affiliate link · We earn a commission at no cost to you · <a href="/disclosure" class="underline">Full disclosure</a>
+  </div>
+</aside>
