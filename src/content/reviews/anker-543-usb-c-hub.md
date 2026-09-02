@@ -7,7 +7,7 @@ priceUsd: 35
 rating: 4.4
 releaseDate: "2026-07-10"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/anker-543-usb-c-hub.svg"
+cover: "/_images/anker-543-usb-c-hub.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

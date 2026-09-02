@@ -7,7 +7,7 @@ priceUsd: 1099
 rating: 4.4
 releaseDate: 2026-05-15
 lastUpdated: 2026-09-02
-cover: "/images/reviews/garmin-fenix-9.svg"
+cover: "/_images/garmin-fenix-9-solar.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

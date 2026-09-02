@@ -7,7 +7,7 @@ priceUsd: 229
 rating: 4.3
 releaseDate: 2026-08-01
 lastUpdated: 2026-09-02
-cover: "/images/reviews/aqara-u200.svg"
+cover: "/_images/aqara-u200.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

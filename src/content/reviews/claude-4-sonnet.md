@@ -7,7 +7,7 @@ priceUsd: 20
 rating: 4.5
 releaseDate: 2026-07-15
 lastUpdated: 2026-09-02
-cover: "/images/reviews/claude-sonnet.svg"
+cover: "/_images/claude-4-sonnet.jpg"
 affiliate:
   url: "https://anthropic.com"
   network: "direct"

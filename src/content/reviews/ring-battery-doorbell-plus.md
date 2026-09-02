@@ -7,7 +7,7 @@ priceUsd: 180
 rating: 4.3
 releaseDate: "2026-07-20"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/ring-battery-doorbell-plus.svg"
+cover: "/_images/ring-battery-doorbell-plus.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

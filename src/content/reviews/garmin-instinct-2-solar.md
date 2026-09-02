@@ -7,7 +7,7 @@ priceUsd: 399
 rating: 4.2
 releaseDate: "2026-06-12"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/garmin-instinct-2-solar.svg"
+cover: "/_images/garmin-instinct-2-solar.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

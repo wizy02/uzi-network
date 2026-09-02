@@ -7,7 +7,7 @@ priceUsd: 13
 rating: 4.7
 releaseDate: "2026-03-15"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/tp-link-kasa-smart-plug.svg"
+cover: "/_images/tp-link-kasa-smart-plug.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

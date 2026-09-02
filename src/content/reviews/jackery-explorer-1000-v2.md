@@ -7,7 +7,7 @@ priceUsd: 799
 rating: 4.6
 releaseDate: "2026-04-10"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/jackery-explorer-1000-v2.svg"
+cover: "/_images/jackery-explorer-1000-v2.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

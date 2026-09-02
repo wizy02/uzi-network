@@ -7,7 +7,7 @@ priceUsd: 429
 rating: 4.5
 releaseDate: "2026-05-30"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/bose-quietcomfort-ultra.svg"
+cover: "/_images/bose-quietcomfort-ultra.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

@@ -7,7 +7,7 @@ priceUsd: 99
 rating: 4.5
 releaseDate: 2026-07-25
 lastUpdated: 2026-09-02
-cover: "/images/reviews/mx-master-4.svg"
+cover: "/_images/logitech-mx-master-4.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

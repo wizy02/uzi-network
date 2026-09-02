@@ -7,7 +7,7 @@ priceUsd: 90
 rating: 4.7
 releaseDate: "2026-06-15"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/anker-737-power-bank.svg"
+cover: "/_images/anker-737-power-bank.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

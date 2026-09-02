@@ -7,7 +7,7 @@ priceUsd: 249
 rating: 4.6
 releaseDate: "2026-09-20"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/apple-airpods-pro-3.svg"
+cover: "/_images/apple-airpods-pro-3.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

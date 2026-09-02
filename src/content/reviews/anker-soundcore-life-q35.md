@@ -7,7 +7,7 @@ priceUsd: 80
 rating: 4.4
 releaseDate: "2026-06-01"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/anker-soundcore-life-q35.svg"
+cover: "/_images/anker-soundcore-life-q35.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

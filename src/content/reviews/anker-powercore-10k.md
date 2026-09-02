@@ -7,7 +7,7 @@ priceUsd: 25
 rating: 4.6
 releaseDate: 2026-07-01
 lastUpdated: 2026-09-02
-cover: "/images/reviews/anker-powercore-10k.svg"
+cover: "/_images/anker-powercore-10k.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

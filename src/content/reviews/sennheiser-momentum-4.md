@@ -7,7 +7,7 @@ priceUsd: 349
 rating: 4.4
 releaseDate: "2026-04-25"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/sennheiser-momentum-4.svg"
+cover: "/_images/sennheiser-momentum-4.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

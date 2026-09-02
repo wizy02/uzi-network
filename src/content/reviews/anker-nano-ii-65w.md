@@ -7,7 +7,7 @@ priceUsd: 40
 rating: 4.7
 releaseDate: "2026-05-20"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/anker-nano-ii-65w.svg"
+cover: "/_images/anker-nano-ii-65w.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

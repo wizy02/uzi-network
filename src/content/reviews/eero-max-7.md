@@ -7,7 +7,7 @@ priceUsd: 599
 rating: 4.5
 releaseDate: "2026-05-10"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/eero-max-7.svg"
+cover: "/_images/eero-max-7.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

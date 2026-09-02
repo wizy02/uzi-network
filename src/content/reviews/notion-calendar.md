@@ -7,7 +7,7 @@ priceUsd: 0
 rating: 4.4
 releaseDate: 2026-04-10
 lastUpdated: 2026-09-02
-cover: "/images/reviews/notion-calendar.svg"
+cover: "/_images/notion-calendar.jpg"
 affiliate:
   url: "https://notion.so"
   network: "direct"

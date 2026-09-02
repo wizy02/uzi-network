@@ -7,7 +7,7 @@ priceUsd: 80
 rating: 4.5
 releaseDate: "2026-08-05"
 lastUpdated: "2026-09-02"
-cover: "/images/reviews/govee-glide-wall-light.svg"
+cover: "/_images/govee-glide-wall-light.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
