@@ -23,8 +23,10 @@ export const NAV = [
 export const SOCIAL = [
   { href: 'https://youtube.com/@uzinetwork', label: 'YouTube' },
   { href: 'https://tiktok.com/@uzinetwork', label: 'TikTok' },
-  { href: 'https://facebook.com/uzinetwork', label: 'Facebook' },
-  { href: 'https://twitter.com/uzinetwork', label: 'X / Twitter' },
+  { href: 'https://facebook.com/@uzinetwork', label: 'Facebook' },
+  { href: 'https://twitter.com/@uzinetwork', label: 'X / Twitter' },
+  { href: 'https://pinterest.com/@uzinetwork', label: 'Pinterest' },
+  { href: 'https://instagram.com/@uzinetwork', label: 'Instagram' },
 ] as const;
 
 export const CATEGORIES = [
