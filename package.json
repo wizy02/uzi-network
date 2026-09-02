@@ -7,7 +7,11 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "social:generate": "node scripts/social-poster.mjs",
+    "social:schedule": "node scripts/post-queue.mjs show",
+    "social:preview": "node scripts/post-queue.mjs preview",
+    "social:platform": "node scripts/social-poster.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.0.0",
