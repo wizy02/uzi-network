@@ -9,7 +9,7 @@ releaseDate: "2026-05-20"
 lastUpdated: "2026-09-02"
 cover: "/images/reviews/anker-nano-ii-65w.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-anker-nano-ii-65w-20"
   cta: "Check current price on Amazon"
@@ -49,7 +49,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Anker Nano II 65W Review"
       price="$40"
       rating={rating}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={features}

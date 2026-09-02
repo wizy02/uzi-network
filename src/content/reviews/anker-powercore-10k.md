@@ -9,7 +9,7 @@ releaseDate: 2026-07-01
 lastUpdated: 2026-09-02
 cover: "/images/reviews/anker-powercore-10k.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-anker-pc10k-20"
   cta: "Check current price on Amazon"
@@ -51,7 +51,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Anker PowerCore 10K"
       price="$25"
       rating={4.6}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={["10,000mAh", "0.6 inch slim", "USB-C + USB-A", "2-3 phone charges"]}
@@ -60,17 +60,17 @@ import Newsletter from '../../components/Newsletter.astro';
     <p class="text-ink-400 text-sm">Last updated: September 2, 2026 · Tested for: 63 days of daily use</p>
 
     <h2>The 60-second take</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Anker PowerCore 10K</a> is the portable charger most people should buy. At $25, it's the price floor where quality and value meet. I've used it for 63 days as my daily driver for phone + earbuds charging. It's never let me down.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Anker PowerCore 10K</a> is the portable charger most people should buy. At $25, it's the price floor where quality and value meet. I've used it for 63 days as my daily driver for phone + earbuds charging. It's never let me down.</p>
 
     <h2>Why 10,000mAh is the sweet spot</h2>
-    <p>10,000mAh = roughly 2-3 full phone charges depending on your phone. For most people, that's enough for a weekend trip without a wall outlet. The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">PowerCore 10K</a> charges my iPhone 15 Pro from 0-100% twice plus a top-up. That's 2.5 charges per bank.</p>
+    <p>10,000mAh = roughly 2-3 full phone charges depending on your phone. For most people, that's enough for a weekend trip without a wall outlet. The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">PowerCore 10K</a> charges my iPhone 15 Pro from 0-100% twice plus a top-up. That's 2.5 charges per bank.</p>
 
     <p>Anything smaller (5,000mAh) only gives you 1 charge. Anything bigger (20,000mAh+) is heavier and more expensive than most people need.</p>
 
     <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The 0.6-inch profile is the real win</h2>
-    <p>Most 10,000mAh banks are bulky. The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Anker PowerCore 10K</a> is 0.6 inches thin — about the thickness of two phones stacked. It fits in a jeans pocket, a jacket pocket, a small purse. This is the difference between a charger you actually carry and one that lives in your bag.</p>
+    <p>Most 10,000mAh banks are bulky. The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Anker PowerCore 10K</a> is 0.6 inches thin — about the thickness of two phones stacked. It fits in a jeans pocket, a jacket pocket, a small purse. This is the difference between a charger you actually carry and one that lives in your bag.</p>
 
     <h2>USB-C + USB-A is forward and backward compatible</h2>
     <p>The PowerCore 10K has both USB-C and USB-A output ports. USB-C for modern phones, USB-A for older cables, earbuds, smartwatches. You don't need to remember to bring the right cable.</p>
@@ -94,7 +94,7 @@ import Newsletter from '../../components/Newsletter.astro';
     />
 
     <h2>Final verdict</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Anker PowerCore 10K</a> is the portable charger most people should buy. $25, slim, reliable, from a brand that stands behind their products. Buy one. You won't regret it.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Anker PowerCore 10K</a> is the portable charger most people should buy. $25, slim, reliable, from a brand that stands behind their products. Buy one. You won't regret it.</p>
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 63 days.</em></p>
 

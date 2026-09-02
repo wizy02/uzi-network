@@ -9,7 +9,7 @@ releaseDate: "2026-08-05"
 lastUpdated: "2026-09-02"
 cover: "/images/reviews/govee-glide-wall-light.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-govee-glide-wall-light-20"
   cta: "Check current price on Amazon"
@@ -49,7 +49,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Govee Glide Wall Light Review"
       price="$80"
       rating={rating}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={features}

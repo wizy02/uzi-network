@@ -9,7 +9,7 @@ releaseDate: 2026-05-15
 lastUpdated: 2026-09-02
 cover: "/images/reviews/garmin-fenix-9.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-garmin-fenix-9-20"
   cta: "Check current price on Amazon"
@@ -52,7 +52,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Garmin Fenix 9 Solar"
       price="$1,099"
       rating={4.4}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={["30-day battery", "Solar charging", "Sapphire crystal", "Multi-band GPS"]}
@@ -61,12 +61,12 @@ import Newsletter from '../../components/Newsletter.astro';
     <p class="text-ink-400 text-sm">Last updated: September 2, 2026 · Tested for: 110 days of hiking, trail running, travel</p>
 
     <h2>The 60-second take</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Garmin Fenix 9 Solar</a> is the best outdoor watch you can buy. Period. The 30-day battery is real. The solar charging adds 2–3 days per week of meaningful sun. The GPS is best-in-class. If you spend serious time outside, this is the watch.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Garmin Fenix 9 Solar</a> is the best outdoor watch you can buy. Period. The 30-day battery is real. The solar charging adds 2–3 days per week of meaningful sun. The GPS is best-in-class. If you spend serious time outside, this is the watch.</p>
 
     <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The battery is genuinely 30 days</h2>
-    <p>I won't bore you with a battery graph. Here's what happened: I charged the <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Fenix 9 Solar</a> to 100% on day 1. With daily training (1–2 hours of GPS-tracked activity), sleep tracking, and 24/7 heart rate, I hit 22% on day 28. On day 29, I charged it. That's 30 days of real-world use.</p>
+    <p>I won't bore you with a battery graph. Here's what happened: I charged the <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Fenix 9 Solar</a> to 100% on day 1. With daily training (1–2 hours of GPS-tracked activity), sleep tracking, and 24/7 heart rate, I hit 22% on day 28. On day 29, I charged it. That's 30 days of real-world use.</p>
 
     <p>Apple Watch Ultra 2 lasts 36 hours. The Fenix 9 Solar lasts 30 days. There's no comparison if you value battery.</p>
 
@@ -74,7 +74,7 @@ import Newsletter from '../../components/Newsletter.astro';
     <p>I was skeptical. After 110 days of testing, I'm a believer. The Fenix 9 Solar's solar panel adds 2–3 days of battery per week of meaningful sun exposure (hiking, trail running, even walking the dog on a sunny day). On a backpacking trip, I got 8 days out of the watch with daily 4-hour hikes.</p>
 
     <h2>GPS — the real reason to buy Garmin</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Fenix 9's</a> multi-band GPS is a generation ahead of Apple and Coros. In a deep canyon on a recent trip, the Apple Watch Ultra 2 lost GPS lock. The Fenix 9 held it. If you hike, run, or bike in technical terrain, this matters.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Fenix 9's</a> multi-band GPS is a generation ahead of Apple and Coros. In a deep canyon on a recent trip, the Apple Watch Ultra 2 lost GPS lock. The Fenix 9 held it. If you hike, run, or bike in technical terrain, this matters.</p>
 
     <h2>What I didn't like</h2>
     <ol>
@@ -94,7 +94,7 @@ import Newsletter from '../../components/Newsletter.astro';
     />
 
     <h2>Final verdict</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Garmin Fenix 9 Solar</a> is the best outdoor watch for serious users. The battery alone justifies the price. If you hike, trail run, or backpack, buy it. If you're a casual gym-goer, save $700 and get the Instinct 2.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Garmin Fenix 9 Solar</a> is the best outdoor watch for serious users. The battery alone justifies the price. If you hike, trail run, or backpack, buy it. If you're a casual gym-goer, save $700 and get the Instinct 2.</p>
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 110 days.</em></p>
 

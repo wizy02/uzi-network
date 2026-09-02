@@ -9,7 +9,7 @@ releaseDate: "2026-04-10"
 lastUpdated: "2026-09-02"
 cover: "/images/reviews/jackery-explorer-1000-v2.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-jackery-explorer-1000-v2-20"
   cta: "Check current price on Amazon"
@@ -49,7 +49,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Jackery Explorer 1000 v2 Review"
       price="$799"
       rating={rating}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={features}

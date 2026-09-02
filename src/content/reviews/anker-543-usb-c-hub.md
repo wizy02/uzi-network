@@ -9,7 +9,7 @@ releaseDate: "2026-07-10"
 lastUpdated: "2026-09-02"
 cover: "/images/reviews/anker-543-usb-c-hub.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-anker-543-usb-c-hub-20"
   cta: "Check current price on Amazon"
@@ -49,7 +49,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Anker 543 USB-C Hub Review"
       price="$35"
       rating={rating}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={features}

@@ -9,7 +9,7 @@ releaseDate: "2026-06-12"
 lastUpdated: "2026-09-02"
 cover: "/images/reviews/garmin-instinct-2-solar.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-garmin-instinct-2-solar-20"
   cta: "Check current price on Amazon"
@@ -49,7 +49,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Garmin Instinct 2 Solar Review"
       price="$399"
       rating={rating}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={features}

@@ -9,7 +9,7 @@ releaseDate: 2026-08-01
 lastUpdated: 2026-09-02
 cover: "/images/reviews/aqara-u200.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-aqara-u200-20"
   cta: "Check current price on Amazon"
@@ -53,7 +53,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Aqara U200"
       price="$229"
       rating={4.3}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={["HomeKit + Matter", "No hub required", "Thread + WiFi", "Matter-ready"]}
@@ -62,12 +62,12 @@ import Newsletter from '../../components/Newsletter.astro';
     <p class="text-ink-400 text-sm">Last updated: September 2, 2026 · Tested for: 32 days on an existing deadbolt</p>
 
     <h2>The 60-second take</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Aqara U200</a> is the best smart lock for people who want HomeKit + Matter without buying a separate hub. The install takes 15 minutes and works on any standard deadbolt. The $229 price is up from the U100's $179, but the no-hub + Matter support is worth the premium.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Aqara U200</a> is the best smart lock for people who want HomeKit + Matter without buying a separate hub. The install takes 15 minutes and works on any standard deadbolt. The $229 price is up from the U100's $179, but the no-hub + Matter support is worth the premium.</p>
 
     <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The install is genuinely 15 minutes</h2>
-    <p>I'm not a handy person. I installed the <a href="https://amazon.com" rel="sponsored noopener" target="_blank">U200</a> on a 5-year-old Kwikset deadbolt in 15 minutes. No door modification. No drilling. The included instructions are actually good. The Aqara app walks you through the WiFi or Thread setup step-by-step.</p>
+    <p>I'm not a handy person. I installed the <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">U200</a> on a 5-year-old Kwikset deadbolt in 15 minutes. No door modification. No drilling. The included instructions are actually good. The Aqara app walks you through the WiFi or Thread setup step-by-step.</p>
 
     <p>This is the only smart lock I've tested that a non-technical person could install without help. That's a real differentiator.</p>
 
@@ -95,7 +95,7 @@ import Newsletter from '../../components/Newsletter.astro';
     />
 
     <h2>Final verdict</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Aqara U200</a> is the best no-hub HomeKit lock in 2026. The Matter support future-proofs it. The install is renter-friendly. If you're in the Apple ecosystem, this is the lock to buy.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Aqara U200</a> is the best no-hub HomeKit lock in 2026. The Matter support future-proofs it. The install is renter-friendly. If you're in the Apple ecosystem, this is the lock to buy.</p>
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 32 days.</em></p>
 

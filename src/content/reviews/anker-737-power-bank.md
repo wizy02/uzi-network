@@ -9,7 +9,7 @@ releaseDate: "2026-06-15"
 lastUpdated: "2026-09-02"
 cover: "/images/reviews/anker-737-power-bank.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-anker-737-power-bank-20"
   cta: "Check current price on Amazon"
@@ -49,7 +49,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Anker 737 Power Bank Review"
       price="$90"
       rating={rating}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={features}

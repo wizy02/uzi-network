@@ -9,7 +9,7 @@ releaseDate: "2026-04-15"
 lastUpdated: "2026-09-02"
 cover: "/images/reviews/anker-727-charging-station.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-anker-727-charging-station-20"
   cta: "Check current price on Amazon"
@@ -48,7 +48,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Anker 727 Charging Station Review"
       price="$80"
       rating={rating}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={features}

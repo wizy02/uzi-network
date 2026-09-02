@@ -9,7 +9,7 @@ releaseDate: 2026-08-10
 lastUpdated: 2026-09-02
 cover: "/images/reviews/macbook-m5.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-macbook-m5-20"
   cta: "Check current price on Amazon"
@@ -53,7 +53,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="MacBook Pro M5"
       price="$1,999 starting"
       rating={4.6}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={["M5 chip", "16hr battery", "Liquid Retina XDR", "16GB unified memory"]}
@@ -62,7 +62,7 @@ import Newsletter from '../../components/Newsletter.astro';
     <p class="text-ink-400 text-sm">Last updated: September 2, 2026 · Tested for: 23 days of daily use</p>
 
     <h2>The 60-second take</h2>
-    <p>The M5 is the first MacBook Pro in three years that feels like a <em>real</em> generation, not a refresh. Performance is up 30% over the M3 in our benchmarks — and more importantly, you feel it in the keyboard, not just the spec sheet. <a href="https://amazon.com" rel="sponsored noopener" target="_blank">The M5 MacBook Pro</a> is the upgrade worth paying for if you're coming from anything older than M3.</p>
+    <p>The M5 is the first MacBook Pro in three years that feels like a <em>real</em> generation, not a refresh. Performance is up 30% over the M3 in our benchmarks — and more importantly, you feel it in the keyboard, not just the spec sheet. <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">The M5 MacBook Pro</a> is the upgrade worth paying for if you're coming from anything older than M3.</p>
 
     <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
@@ -82,7 +82,7 @@ import Newsletter from '../../components/Newsletter.astro';
     </ol>
 
     <h2>Who should buy</h2>
-    <p>If you're on <a href="https://amazon.com" rel="sponsored noopener" target="_blank">an M2 or older MacBook</a>, this is the upgrade. The 30% gain is meaningful and you'll feel it daily. If you're on M3, save your money. If you're on Intel, this is a revelation — and Apple will give you a trade-in credit that knocks $300–$500 off the price.</p>
+    <p>If you're on <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">an M2 or older MacBook</a>, this is the upgrade. The 30% gain is meaningful and you'll feel it daily. If you're on M3, save your money. If you're on Intel, this is a revelation — and Apple will give you a trade-in credit that knocks $300–$500 off the price.</p>
 
     <h2>How it compares</h2>
     <ComparisonTable
@@ -96,7 +96,7 @@ import Newsletter from '../../components/Newsletter.astro';
     />
 
     <h2>Final verdict</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">M5 MacBook Pro</a> is the best Mac for serious work. It's expensive, but it pays for itself. If you use your laptop 8+ hours a day for work, the M5 is a no-brainer upgrade from anything older than M3.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">M5 MacBook Pro</a> is the best Mac for serious work. It's expensive, but it pays for itself. If you use your laptop 8+ hours a day for work, the M5 is a no-brainer upgrade from anything older than M3.</p>
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 23 days before writing.</em></p>
 

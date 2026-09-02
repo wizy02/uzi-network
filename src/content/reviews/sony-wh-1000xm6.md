@@ -9,7 +9,7 @@ releaseDate: 2026-06-20
 lastUpdated: 2026-09-02
 cover: "/images/reviews/sony-xm6.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-sony-xm6-20"
   cta: "Check current price on Amazon"
@@ -52,7 +52,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Sony WH-1000XM6"
       price="$449"
       rating={4.7}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={["Best-in-class ANC", "32hr battery", "Multi-point BT", "LDAC hi-res"]}
@@ -61,17 +61,17 @@ import Newsletter from '../../components/Newsletter.astro';
     <p class="text-ink-400 text-sm">Last updated: September 2, 2026 · Tested for: 73 days across office, travel, and gym</p>
 
     <h2>The 60-second take</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Sony WH-1000XM6</a> is the best noise-cancelling headphone money can buy in 2026. The ANC is meaningfully better than the XM5 and the Bose QC Ultra. The call quality — previously a Sony weakness — is finally on par with Bose. If you can afford $449, this is the pick.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Sony WH-1000XM6</a> is the best noise-cancelling headphone money can buy in 2026. The ANC is meaningfully better than the XM5 and the Bose QC Ultra. The call quality — previously a Sony weakness — is finally on par with Bose. If you can afford $449, this is the pick.</p>
 
     <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The noise cancellation is genuinely better</h2>
-    <p>I'll skip the lab test. Here's what matters: on a cross-country flight with a screaming baby two rows back, the <a href="https://amazon.com" rel="sponsored noopener" target="_blank">XM6</a> reduced the baby's cry to a faint murmur. The Bose QC Ultra, the previous gold standard, let more of it through. On the NYC subway, the XM6's adaptive ANC killed the screeching brakes in a way the XM5 just didn't.</p>
+    <p>I'll skip the lab test. Here's what matters: on a cross-country flight with a screaming baby two rows back, the <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">XM6</a> reduced the baby's cry to a faint murmur. The Bose QC Ultra, the previous gold standard, let more of it through. On the NYC subway, the XM6's adaptive ANC killed the screeching brakes in a way the XM5 just didn't.</p>
 
     <p>This is what you're paying $449 for. The ANC is the reason to upgrade.</p>
 
     <h2>Battery and call quality — the quiet wins</h2>
-    <p>The XM5 had 30-hour battery. The XM6 has 32. That's a marketing number. The real win is the call quality — Sony's previous generations were noticeably worse than Bose on phone calls. The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">XM6</a> uses the same beam-forming mic array as the WF-1000XM5 earbuds, and it shows. People I called couldn't tell I was on a headset.</p>
+    <p>The XM5 had 30-hour battery. The XM6 has 32. That's a marketing number. The real win is the call quality — Sony's previous generations were noticeably worse than Bose on phone calls. The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">XM6</a> uses the same beam-forming mic array as the WF-1000XM5 earbuds, and it shows. People I called couldn't tell I was on a headset.</p>
 
     <h2>What I didn't like</h2>
     <p>Three real complaints:</p>
@@ -93,7 +93,7 @@ import Newsletter from '../../components/Newsletter.astro';
     />
 
     <h2>Final verdict</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Sony WH-1000XM6</a> is the noise-cancelling king. If you're upgrading from the XM3 or older, it's a no-brainer. XM5 owners — wait for the XM7 or the inevitable price drop on the XM6. Anyone on a budget — the XM4 at $250 is still excellent.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Sony WH-1000XM6</a> is the noise-cancelling king. If you're upgrading from the XM3 or older, it's a no-brainer. XM5 owners — wait for the XM7 or the inevitable price drop on the XM6. Anyone on a budget — the XM4 at $250 is still excellent.</p>
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 73 days.</em></p>
 

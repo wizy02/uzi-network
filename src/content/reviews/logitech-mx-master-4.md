@@ -9,7 +9,7 @@ releaseDate: 2026-07-25
 lastUpdated: 2026-09-02
 cover: "/images/reviews/mx-master-4.svg"
 affiliate:
-  url: "https://amazon.com"
+  url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
   tag: "uzi-mx-master-4-20"
   cta: "Check current price on Amazon"
@@ -53,7 +53,7 @@ import Newsletter from '../../components/Newsletter.astro';
       product="Logitech MX Master 4"
       price="$99"
       rating={4.5}
-      affiliateUrl="https://amazon.com"
+      affiliateUrl="https://www.amazon.com?tag=uzinetwork20-20"
       network="amazon"
       cta="Check current price on Amazon"
       features={["Magspeed scroll", "Multi-device", "70-day battery", "USB-C fast charge"]}
@@ -62,12 +62,12 @@ import Newsletter from '../../components/Newsletter.astro';
     <p class="text-ink-400 text-sm">Last updated: September 2, 2026 · Tested for: 39 days of daily use</p>
 
     <h2>The 60-second take</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Logitech MX Master 4</a> is the best productivity mouse you can buy. The magspeed scroll wheel is genuinely faster than any other mouse for long documents. Multi-device pairing is the best in the category. If you work 8+ hours a day at a computer, this mouse pays for itself.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Logitech MX Master 4</a> is the best productivity mouse you can buy. The magspeed scroll wheel is genuinely faster than any other mouse for long documents. Multi-device pairing is the best in the category. If you work 8+ hours a day at a computer, this mouse pays for itself.</p>
 
     <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The scroll wheel is the killer feature</h2>
-    <p>Most mice have a scroll wheel. The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">MX Master 4's</a> magspeed wheel is something else. It freewheels for hyper-fast scrolling through 500-page PDFs, then clicks back into ratchet mode for precise work. Switching between modes is automatic based on how fast you flick.</p>
+    <p>Most mice have a scroll wheel. The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">MX Master 4's</a> magspeed wheel is something else. It freewheels for hyper-fast scrolling through 500-page PDFs, then clicks back into ratchet mode for precise work. Switching between modes is automatic based on how fast you flick.</p>
 
     <p>I edit 50+ page documents weekly. The MX Master 4 saves me 15–20 minutes a day vs a regular mouse. At $99, the mouse pays for itself in a week.</p>
 
@@ -95,7 +95,7 @@ import Newsletter from '../../components/Newsletter.astro';
     />
 
     <h2>Final verdict</h2>
-    <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Logitech MX Master 4</a> is the productivity mouse to beat. The scroll wheel alone justifies the price for anyone who reads or edits long documents. Multi-device pairing is unmatched. Buy it if you work 8+ hours a day at a computer.</p>
+    <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Logitech MX Master 4</a> is the productivity mouse to beat. The scroll wheel alone justifies the price for anyone who reads or edits long documents. Multi-device pairing is unmatched. Buy it if you work 8+ hours a day at a computer.</p>
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 39 days.</em></p>
 
