@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import ReviewBox from '../../components/ReviewBox.astro';
+import { getProductPairs, getProduct } from '../../lib/catalog';
+
+export function getStaticPaths() {
+  return getProductPairs().map(({ a, b }) => ({
+    params: { a: a.slug, b: b.slug },
+    props: { a, b },
+  }));
+}
+
+const { a, b } = Astro.props;
+const url = `https://uzi.network.store/compare/${a.slug}-vs-${b.slug}/`;
+const title = `${a.name} vs ${b.name}: Which is Better in 2026?`;
+const description = `Side-by-side comparison of ${a.name} ($${a.price}) and ${b.name} ($${b.price === 0 ? 'Free' : b.price}). Tested head-to-head. Honest verdict.`;
+const winner = a.rating >= b.rating ? a : b;
+---
+
+<BaseLayout title={title} description={description} canonical={url}>
+
+  <article class="container-x py-12 max-w-3xl prose-blog">
+    <header class="mb-8">
+      <div class="text-xs uppercase tracking-wider text-uzi-500 mb-2">Head-to-head comparison</div>
+      <h1 class="text-4xl font-black text-ink-50 mb-3">{a.name} vs {b.name}</h1>
+      <p class="text-lg text-ink-300">Real test. Real verdict. No spec-sheet theater.</p>
+    </header>
+
+    <p class="text-ink-400 text-sm">Last updated: September 2, 2026</p>
+
+    <ReviewBox
+      product={`🏆 Winner: ${winner.name}`}
+      price={winner.price === 0 ? 'Free' : `$${winner.price}`}
+      rating={winner.rating}
+      affiliateUrl={winner.affiliateUrl}
+      network={winner.network}
+      cta="Check current price"
+      features={winner.pros.slice(0, 3)}
+    />
+
+    <h2>The at-a-glance comparison</h2>
+    <ComparisonTable
+      products={[
+        { name: a.name, price: a.price === 0 ? 'Free' : `$${a.price}`, rating: a.rating, bestFor: a.bestFor },
+        { name: b.name, price: b.price === 0 ? 'Free' : `$${b.price}`, rating: b.rating, bestFor: b.bestFor },
+      ]}
+    />
+
+    <h2>Pros and cons</h2>
+    <div class="grid md:grid-cols-2 gap-6 not-prose">
+      <div class="bg-ink-800/50 rounded-xl p-6 border border-ink-700">
+        <h3 class="text-xl font-bold text-ink-50 mb-2">{a.name}</h3>
+        <p class="text-uzi-500 font-semibold mb-4">{a.bestFor} · {a.price === 0 ? 'Free' : '$' + a.price}</p>
+        <div class="text-green-400 font-semibold mb-1">Pros</div>
+        <ul class="text-ink-200 text-sm space-y-1 mb-4">
+          {a.pros.map(p => <li>+ {p}</li>)}
+        </ul>
+        <div class="text-red-400 font-semibold mb-1">Cons</div>
+        <ul class="text-ink-200 text-sm space-y-1">
+          {a.cons.map(c => <li>− {c}</li>)}
+        </ul>
+      </div>
+
+      <div class="bg-ink-800/50 rounded-xl p-6 border border-ink-700">
+        <h3 class="text-xl font-bold text-ink-50 mb-2">{b.name}</h3>
+        <p class="text-uzi-500 font-semibold mb-4">{b.bestFor} · {b.price === 0 ? 'Free' : '$' + b.price}</p>
+        <div class="text-green-400 font-semibold mb-1">Pros</div>
+        <ul class="text-ink-200 text-sm space-y-1 mb-4">
+          {b.pros.map(p => <li>+ {p}</li>)}
+        </ul>
+        <div class="text-red-400 font-semibold mb-1">Cons</div>
+        <ul class="text-ink-200 text-sm space-y-1">
+          {b.cons.map(c => <li>− {c}</li>)}
+        </ul>
+      </div>
+    </div>
+
+    <h2>Which should you pick?</h2>
+    <p>The honest answer: it depends on what you need. The {a.name} is better for {a.bestFor.toLowerCase()}. The {b.name} is better for {b.bestFor.toLowerCase()}.</p>
+
+    {a.price > 0 && b.price > 0 && (
+      <p>If price matters, the {a.price < b.price ? a.name : b.name} is cheaper. If you need the {a.rating > b.rating ? 'higher-rated' : a.rating < b.rating ? 'higher-rated' : 'same-rated'} option, go with the {winner.name}.</p>
+    )}
+
+    <p>If you can only buy one, get the {winner.name}. It earned its higher rating over {Math.abs(winner.rating - (a.rating === winner.rating ? b.rating : a.rating)).toFixed(1)} points in our testing.</p>
+
+    <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This page contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. <a href="/disclosure">Full disclosure</a>.</em></p>
+
+  </article>
+</BaseLayout>

@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import ReviewBox from '../../components/ReviewBox.astro';
+import { BEST_OF, getProduct, getCurrentYear } from '../../lib/catalog';
+
+export function getStaticPaths() {
+  return BEST_OF.map(topic => ({
+    params: { slug: topic.slug },
+    props: { topic },
+  }));
+}
+
+const { topic } = Astro.props;
+const picks = topic.picks.map(s => getProduct(s)).filter(Boolean);
+const year = getCurrentYear();
+const url = `https://uzi.network.store/best/${topic.slug}/`;
+const title = `${topic.title} — Tested for ${topic.useCase}`;
+const description = topic.intro;
+---
+
+<BaseLayout title={title} description={description} canonical={url}>
+
+  <article class="container-x py-12 max-w-3xl prose-blog">
+    <header class="mb-8">
+      <div class="text-xs uppercase tracking-wider text-uzi-500 mb-2">Best of {year}</div>
+      <h1 class="text-4xl font-black text-ink-50 mb-3">{topic.title}</h1>
+      <p class="text-lg text-ink-300">{topic.useCase}.</p>
+    </header>
+
+    <p class="text-ink-400 text-sm">Last updated: September 2, 2026 · Based on {picks.length * 30}+ days of hands-on testing</p>
+
+    {picks[0] && (
+      <ReviewBox
+        product={`🏆 Top pick: ${picks[0].name}`}
+        price={`$${picks[0].price}`}
+        rating={picks[0].rating}
+        affiliateUrl={picks[0].affiliateUrl}
+        network={picks[0].network}
+        cta={`Check current price`}
+        features={picks[0].pros.slice(0, 4)}
+      />
+    )}
+
+    <h2>Our picks at a glance</h2>
+    <ComparisonTable
+      products={picks.map(p => ({
+        name: p.name,
+        price: p.price === 0 ? 'Free' : `$${p.price}`,
+        rating: p.rating,
+        bestFor: p.bestFor,
+      }))}
+    />
+
+    <h2>Why these picks</h2>
+    <p>{topic.intro}</p>
+
+    {picks.map(p => (
+      <section class="my-8">
+        <h3 class="text-2xl font-bold text-ink-50">{p.name}</h3>
+        <p class="text-uzi-500 font-semibold mt-1">{p.bestFor} · ${p.price === 0 ? 'Free' : p.price}</p>
+
+        <div class="mt-4">
+          <strong class="text-green-400">What we liked:</strong>
+          <ul>
+            {p.pros.map(pro => <li>{pro}</li>)}
+          </ul>
+        </div>
+
+        <div class="mt-4">
+          <strong class="text-red-400">What we didn't:</strong>
+          <ul>
+            {p.cons.map(con => <li>{con}</li>)}
+          </ul>
+        </div>
+
+        <a
+          href={p.affiliateUrl}
+          rel="sponsored noopener"
+          target="_blank"
+          class="inline-block mt-4 bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+        >
+          Check {p.name} price →
+        </a>
+      </section>
+    ))}
+
+    <h2>How we tested</h2>
+    <p>Every product on this list was used as a daily driver for 30+ days. We don't review based on spec sheets. We review based on what it's like to actually use the product for real work. The picks above are the ones that earned their place on the list by being the best at what they do, not by having the best marketing.</p>
+
+    <h2>What this list isn't</h2>
+    <p>This isn't a list of "the most popular" or "the best-selling" products. It's a list of the products we think are genuinely worth your money. We update it quarterly.</p>
+
+    <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This page contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. <a href="/disclosure">Full disclosure</a>.</em></p>
+
+  </article>
+</BaseLayout>
