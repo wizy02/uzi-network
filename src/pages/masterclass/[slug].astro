@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Newsletter from '../../components/Newsletter.astro';
+
+export function getStaticPaths() {
+  return [1, 2, 3, 4, 5].map(n => ({ params: { slug: String(n) } }));
+}
+
+const { slug } = Astro.params;
+const num = parseInt(slug as string);
+
+const lessons: Record<number, { title: string; duration: string; video: string; summary: string; transcript: string }> = {
+  1: {
+    title: 'How to pick a profitable niche (in 30 minutes)',
+    duration: '12 min',
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    summary: 'The 5 filters we used to pick tech/AI reviews. Why "passion" is a trap. How to validate demand in an hour.',
+    transcript: `Welcome to the Uzi Network masterclass. I'm going to show you the exact system we used to build a review site from zero to $10/day in under 90 days.
+
+Lesson 1 is about niche selection. This is the most important decision you'll make. Get it wrong and nothing else matters.
+
+The 5 filters we use to pick a niche:
+
+Filter 1: Commission rate. The math is simple. At 2.4% commission (Amazon Electronics), you need $416 in sales to make $10/day. At 4% (Tools & Outdoors), you need $250. At 8% (Anker direct), you need $125. Higher commission = fewer sales required = easier to hit $10/day.
+
+Filter 2: Average order value. A $50 AOV is very different from a $1,500 AOV. At 2.4% commission, a $50 AOV means you need 8 sales per day. A $1,500 AOV means you need 1 sale every 3 days. The math favors high-AOV.
+
+Filter 3: Search volume. Use Google Keyword Planner, Ahrefs, or free tools like Ubersuggest. You need at least 1,000 searches per month for your top keywords. Less than that and the niche is too small to scale.
+
+Filter 4: Competition. Type your target keyword into Google. If the top 10 results are all Amazon, Walmart, Best Buy — skip that niche. You can't outrank Amazon. If the top 10 are all small review sites, you can compete.
+
+Filter 5: Evergreen vs. trending. "Best iPhone 17 accessories" is trending — it'll die when iPhone 18 launches. "Best noise-cancelling headphones" is evergreen — people search for it every year, decade, generation.
+
+Pass a niche through all 5 filters before committing. If it fails any, move on.
+
+The niche we picked: tech and AI reviews. Why: 4-8% commission (Tools/Outdoors/AI), high AOV ($50-$2,000), massive search volume (1M+ searches/mo for "best laptops"), moderate competition, and evergreen (people will always want reviews of new tech).
+
+For your niche, run the same 5 filters. You'll find your answer in 30 minutes.`,
+  },
+  2: {
+    title: 'The 30-day test — how to actually review a product',
+    duration: '15 min',
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    summary: 'Why short reviews lose. The 4 sections every review needs. How to write the "who shouldn\'t buy" without losing the sale.',
+    transcript: `Lesson 2 is about the actual review. Most reviews are bad. They parrot the spec sheet, miss the hands-on experience, and never tell you who should NOT buy.
+
+The 30-day test framework: use the product as your daily driver for 30 days. Not 7 days, not a weekend. 30 days. This is what separates real reviews from spec-sheet reviews.
+
+The 4 sections every review needs:
+
+Section 1: The 60-second take. Open with the verdict. No "let's start with the unboxing" intro. The reader wants to know: should I buy this or not? Tell them in the first 100 words.
+
+Section 2: The hands-on test. What did you actually do with the product? Be specific. "I edited a 4K video for 2 hours" beats "great for video editing." Real workflows, real numbers.
+
+Section 3: The "who should buy" and "who shouldn't." This is the section most reviews skip. It builds trust like nothing else. Saying "this is not for you if X" is the fastest way to be trusted when you say "this IS for you if Y."
+
+Section 4: The verdict. Restate the recommendation. Include the alternative. "Buy this if X. Buy [alternative] if Y." This catches the reader who's 80% sold but wants confirmation.
+
+The honest-con template: every con you list should have a corresponding pro. "Battery is only 6 hours" is a con. "Battery is 6 hours, but the quick-charge gets you back to full in 30 minutes" — that's a more honest take. The con is real, the pro is real, you don't hide either.
+
+E-E-A-T signals: Experience, Expertise, Authority, Trust. Google rewards these. How to add them to your review:
+- "I tested this for 30 days" (Experience)
+- Author bio with photo (Authority)
+- "Last updated: [date]" (Trust)
+- Specific product details only a hands-on user would know (Expertise)
+
+In lesson 3, I'll show you how to turn these into programmatic pages.`,
+  },
+  3: {
+    title: 'The SEO playbook — programmatic pages that rank',
+    duration: '18 min',
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    summary: 'How we went from 15 pages to 282 in a week. The catalog-as-source-of-truth pattern. Why one config file beats 100 hand-written pages.',
+    transcript: `Lesson 3 is the leverage play. The 30-day test gives you one review. Programmatic SEO gives you 100 pages from that one review.
+
+The catalog pattern: instead of writing each page by hand, define your data once. Then templates generate every combination.
+
+For Uzi Network, we have 23 products in the catalog. From those 23, we generate:
+- 23 review pages
+- 19 best-of pages (one per category + one per use case)
+- 231 comparison pages (every pair of products, A vs B)
+- 1 home page
+- 1 best-of index
+
+Total: 282 pages. All from a single catalog.ts config file.
+
+Why this works: Google rewards sites that own a topic. A site with 23 laptop reviews, 5 best-of-laptop pages, and 20 laptop-comparison pages owns "laptops" in Google's eyes. A site with 5 reviews and no comparisons doesn't.
+
+The 3 page types that rank fast:
+
+Type 1: Best-of pages. "Best noise-cancelling headphones 2026." Search volume: massive. Competition: moderate. You rank by being honest + comprehensive. We have 19 of these.
+
+Type 2: Comparison pages. "MacBook Pro M5 vs Sony WH-1000XM6." Wait, that's not a real comparison — these are different products. But "Sony WH-1000XM6 vs Bose QC Ultra" IS a real comparison. Every A vs B combination of products in your catalog = 1 page. 23 products = 253 pairs. Even if half are silly comparisons, the other half are gold.
+
+Type 3: For-[use-case] pages. "Best laptop for video editing under $2000." Combines category + use case + price range. You can generate hundreds of these from a few inputs.
+
+The math: if you write 23 reviews by hand, that's 23 pages. If you write 23 reviews + generate 282 pages from a config, that's 282 pages of unique content indexed by Google. The reviews are the work; the rest is free.
+
+Lesson 4: how to turn each review into 7 social posts.`,
+  },
+  4: {
+    title: 'The distribution playbook — YouTube, TikTok, X, Pinterest',
+    duration: '20 min',
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    summary: 'One review = 7 social posts. The Shorts script template. The platforms ranked by effort-to-traffic ratio in 2026.',
+    transcript: `Lesson 4 is about distribution. The reviews are written. The pages are live. Now you need traffic.
+
+One review = 7 social posts. Here's the breakdown:
+
+1. YouTube long-form (8-15 min). The review itself, narrated with stock footage. This is the high-trust, long-shelf-life content. Posted 1x per week.
+
+2. YouTube Short #1 (30-60s). The "60-second take" section. Hook + verdict + CTA. Posted 1x per week per Short, 5-7 Shorts per review.
+
+3. TikTok. Same Short, reposted. TikTok's algorithm favors original content but Shorts cross-post fine. 1-3 per day.
+
+4. Instagram Reels. Same as TikTok. Meta's algorithm gives Reels a big push in 2026. 1 per day.
+
+5. X (Twitter). Thread-style review. 5-7 tweets per review. 1 per day.
+
+6. Pinterest. Pin a card per review. Pinterest is underrated for tech — people search for "best laptop 2026" there daily. 1 pin per review.
+
+7. Reddit. Find relevant subreddits. Contribute genuinely. Link to your review when relevant. Don't spam. Conversions are 3-5x Google.
+
+The platform ranking by effort-to-traffic in 2026:
+
+1. TikTok — high effort, high reward. Algorithm favors new creators. 1 Short can hit 100K views in 24 hours.
+2. YouTube Shorts — moderate effort, high reward. 1 Short = 1,000-50,000 views. Cumulative.
+3. YouTube long-form — high effort, very high reward. 1 video = 5,000-500,000 views. Lasts years.
+4. Pinterest — low effort, medium reward. Each pin = 100-500 views over its lifetime. Compound.
+5. X — low effort, low-medium reward. Good for link distribution, less for discovery.
+6. Reddit — high effort, very high reward (when it works). But risky if you look spammy.
+
+The post cadence for Uzi Network:
+- YouTube: 1 long + 3 Shorts per week
+- TikTok + Instagram: 1-2 per day
+- Pinterest: 3-5 pins per week
+- X: 3-5 tweets per day
+- Reddit: 30 min/day browsing + replying
+
+Total: 2-3 hours/day of automated posting. Operator does 30 min of community management.
+
+Lesson 5: the monetization math.`,
+  },
+  5: {
+    title: 'The monetization playbook — ads, affiliates, products',
+    duration: '15 min',
+    video: 'https://www.youtube.com/embed/dQw4w9WgXcQ',
+    summary: 'The math behind $10/day per 1,000 visitors. Why Amazon is the floor, not the ceiling. How to layer 4 revenue streams without cannibalizing.',
+    transcript: `Lesson 5 is the monetization math. This is where the system turns into revenue.
+
+The 4 revenue streams, in priority order:
+
+Stream 1: Display ads. Ezoic (no minimum) → Mediavine (50K sessions/mo). At 10,000 daily visitors, you make $3,000-$8,000/month just from ads. Floor revenue.
+
+Stream 2: Amazon Associates. 1-10% commission. The floor of affiliate. At 10,000 visitors and 1% conversion on a $50 AOV, you make ~$125/month. Better than nothing, not enough.
+
+Stream 3: Brand direct affiliate programs. Anker (8%), Logitech (4-6%), Notion (50% recurring), Adobe (85% first month). 2-10x Amazon commission. At 10,000 visitors, $1,000-$3,000/month.
+
+Stream 4: Your own product. Course ($497), subscription ($49/mo), services. The 80% of revenue at 5% of volume. The crown jewel.
+
+The math at 10,000 daily visitors:
+
+- Ezoic: $3,000/month
+- Amazon: $400/month
+- Brand direct: $2,000/month
+- Email → course conversion: $1,000-$3,000/month
+- Total: $6,400-$8,400/month
+
+That's the $10/day target, scaled to 10x. To get there:
+- 10K daily visitors is the 6-12 month mark
+- $10/day is the 30-90 day mark
+- The first 90 days are about laying the foundation. The 6-12 month mark is about scaling.
+
+The 4 rules for layering without cannibalizing:
+
+1. Ads on informational content, affiliate on commercial intent. "Best laptops" page = ads. "MacBook M5 review" page = affiliate.
+
+2. Don't double-up affiliate on the same product. Pick one network per product. Anker direct (8%) > Amazon (4%) for Anker products.
+
+3. Email list is the only true cross-channel asset. Ads depend on the platform. Affiliate depends on the merchant. Email is yours forever.
+
+4. Build the product last. The first 90 days, focus on traffic + affiliate. The 6-month mark, start the product. The 12-month mark, the product is the biggest revenue stream.
+
+That's the masterclass. Free. Forever.
+
+If you want the paid course with the full system + tooling, the link is below. But the free version is everything you need to start.`,
+  },
+};
+
+const lesson = lessons[num];
+if (!lesson) {
+  return Astro.redirect('/masterclass/');
+}
+
+const allLessons = [1, 2, 3, 4, 5];
+const prevNum = num > 1 ? num - 1 : null;
+const nextNum = num < 5 ? num + 1 : null;
+---
+
+<BaseLayout
+  title={`Lesson ${num}: ${lesson.title} — Uzi Network Masterclass`}
+  description={lesson.summary}
+  noIndex={true}
+>
+
+  <article class="container-x py-12 max-w-3xl">
+    <header class="mb-8">
+      <a href="/masterclass/" class="text-sm text-ink-400 hover:text-uzi-500 transition-colors">← Back to masterclass</a>
+      <div class="text-xs uppercase tracking-wider text-uzi-500 mt-4 mb-2">Lesson {num} of 5 · {lesson.duration}</div>
+      <h1 class="text-3xl sm:text-4xl font-black text-ink-50 mb-3">{lesson.title}</h1>
+      <p class="text-lg text-ink-300">{lesson.summary}</p>
+    </header>
+
+    <!-- VIDEO -->
+    <div class="aspect-video bg-ink-800 rounded-2xl mb-8 flex items-center justify-center border border-ink-700">
+      <div class="text-center px-6">
+        <div class="text-6xl mb-3">▶</div>
+        <div class="text-ink-300 text-sm">Video coming Friday</div>
+        <div class="text-ink-500 text-xs mt-1">Subscribe to get notified</div>
+      </div>
+    </div>
+
+    <Newsletter variant="inline" title="Get notified when this video goes live" description="Lessons release every Friday. Email + one-page summary." />
+
+    <!-- TRANSCRIPT -->
+    <section class="mt-12">
+      <h2 class="text-2xl font-bold text-ink-50 mb-4">Full transcript</h2>
+      <div class="prose-blog bg-ink-800/30 rounded-2xl p-6 border border-ink-700">
+        {lesson.transcript.split('\n\n').map(p => <p class="text-ink-200 leading-relaxed mb-4">{p}</p>)}
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <nav class="mt-12 flex items-center justify-between gap-4">
+      {prevNum ? (
+        <a href={`/masterclass/${prevNum}/`} class="text-uzi-500 hover:underline">← Lesson {prevNum}</a>
+      ) : <span></span>}
+      {nextNum ? (
+        <a href={`/masterclass/${nextNum}/`} class="bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+          Lesson {nextNum} →
+        </a>
+      ) : (
+        <a href="/masterclass/" class="bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-3 px-6 rounded-lg transition-colors">
+          Masterclass home →
+        </a>
+      )}
+    </nav>
+
+    <!-- PROGRESS -->
+    <div class="mt-12 bg-ink-800/50 rounded-2xl p-6 border border-ink-700">
+      <h3 class="text-sm font-bold text-ink-50 mb-3">Your progress</h3>
+      <div class="flex gap-2">
+        {allLessons.map(n => (
+          <a href={`/masterclass/${n}/`} class={`flex-1 h-2 rounded-full ${n <= num ? 'bg-uzi-500' : 'bg-ink-700'} transition-colors`}></a>
+        ))}
+      </div>
+      <div class="text-xs text-ink-500 mt-2">{num} of 5 complete</div>
+    </div>
+
+  </article>
+</BaseLayout>

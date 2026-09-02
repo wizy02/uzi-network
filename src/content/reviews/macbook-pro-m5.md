@@ -45,6 +45,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="MacBook Pro M5 Review" description="Real-world test of Apple's M5 MacBook Pro. 23 days of daily use for coding, video editing, and writing. The M-series finally feels like a real generation.">
 
@@ -97,6 +98,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">M5 MacBook Pro</a> is the best Mac for serious work. It's expensive, but it pays for itself. If you use your laptop 8+ hours a day for work, the M5 is a no-brainer upgrade from anything older than M3.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 23 days before writing.</em></p>
 

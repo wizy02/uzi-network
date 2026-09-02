@@ -41,6 +41,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Ring Battery Doorbell Plus Review: The Best Video Doorbell for Alexa Households" description="The Ring Battery Doorbell Plus is the easiest-to-install video doorbell. 1536p head-to-toe video means you see packages on the ground. Works with Echo Show and ">
 
@@ -85,6 +86,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The Ring Battery Doorbell Plus is the easiest-to-install video doorbell. 1536p head-to-toe video means you see packages on the ground. Works with Echo Show and Fire TV. $180 is fair, but the subscription is the real cost.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 44 days.</em></p>
 

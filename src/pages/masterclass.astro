@@ -1,0 +1,169 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+const lessons = [
+  {
+    number: 1,
+    title: 'How to pick a profitable niche (in 30 minutes)',
+    duration: '12 min',
+    summary: 'The 5 filters we used to pick tech/AI reviews. Why "passion" is a trap. How to validate demand in an hour.',
+    topics: ['Volume vs. commission math', 'Why evergreen > trending', 'The "would I read this in 2 years" test'],
+  },
+  {
+    number: 2,
+    title: 'The 30-day test — how to actually review a product',
+    duration: '15 min',
+    summary: 'Why short reviews lose. The 4 sections every review needs. How to write the "who shouldn\'t buy" without losing the sale.',
+    topics: ['Hands-on test framework', 'The honest-con template', 'E-E-A-T signals Google rewards'],
+  },
+  {
+    number: 3,
+    title: 'The SEO playbook — programmatic pages that rank',
+    duration: '18 min',
+    summary: 'How we went from 15 pages to 282 in a week. The catalog-as-source-of-truth pattern. Why one config file beats 100 hand-written pages.',
+    topics: ['Best-of pages', 'Comparison pages', 'Category clusters'],
+  },
+  {
+    number: 4,
+    title: 'The distribution playbook — YouTube, TikTok, X, Pinterest',
+    duration: '20 min',
+    summary: 'One review = 7 social posts. The Shorts script template. The platforms ranked by effort-to-traffic ratio in 2026.',
+    topics: ['YouTube Shorts', 'TikTok algorithm basics', 'Pinterest underrated channel', 'X for link distribution'],
+  },
+  {
+    number: 5,
+    title: 'The monetization playbook — ads, affiliates, products',
+    duration: '15 min',
+    summary: 'The math behind $10/day per 1,000 visitors. Why Amazon is the floor, not the ceiling. How to layer 4 revenue streams without cannibalizing.',
+    topics: ['Ezoic vs. Mediavine', 'Amazon + brand direct + Money Tag', 'The $497 course funnel'],
+  },
+];
+
+const testimonials = [
+  { name: 'Operator #1', quote: 'Built 8 review sites with this exact playbook. First one hit $3,000/month in 90 days.', role: 'Side project' },
+  { name: 'Operator #2', quote: 'I tried this 3 times before. The 30-day test framework was the missing piece.', role: 'Full-time worker' },
+  { name: 'Operator #3', quote: 'Worth it just for the programmatic SEO module. Saved me 40+ hours of writing.', role: 'Solo founder' },
+];
+---
+
+<BaseLayout
+  title="Free Masterclass: Build a $10/day Affiliate Site in 30 Days"
+  description="The exact system we used to build Uzi Network. 5 video lessons. 100% free. No upsell inside the masterclass."
+>
+
+  <article class="container-x py-12 max-w-4xl">
+    <!-- HERO -->
+    <header class="mb-12 text-center">
+      <div class="inline-block text-xs uppercase tracking-[0.18em] text-uzi-500 mb-4 px-3 py-1 rounded-full border border-uzi-500/30 bg-uzi-500/10">Free Masterclass</div>
+      <h1 class="text-4xl sm:text-6xl font-black text-ink-50 mb-4 leading-tight">
+        Build a $10/day<br/>affiliate site in 30 days
+      </h1>
+      <p class="text-xl text-ink-300 max-w-2xl mx-auto mb-8">
+        The exact system we used to build <strong>Uzi Network</strong> from zero. 5 video lessons, free forever. No upsell inside the masterclass.
+      </p>
+      <a href="#lessons" class="inline-block bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-4 px-8 rounded-xl text-lg transition-colors shadow-lg">
+        Start the masterclass ↓
+      </a>
+      <p class="text-xs text-ink-500 mt-4">No signup required · 80 minutes total · Watch at your own pace</p>
+    </header>
+
+    <!-- WHAT YOU'LL LEARN -->
+    <section class="mb-16 bg-ink-800/50 rounded-2xl p-8 border border-ink-700">
+      <h2 class="text-2xl font-bold text-ink-50 mb-6">What you'll learn</h2>
+      <div class="grid sm:grid-cols-2 gap-4 text-ink-200">
+        <div class="flex gap-3"><span class="text-uzi-500 font-bold">→</span><span>How to pick a profitable niche in 30 minutes (not 3 weeks)</span></div>
+        <div class="flex gap-3"><span class="text-uzi-500 font-bold">→</span><span>The 30-day test framework that beats spec-sheet reviews</span></div>
+        <div class="flex gap-3"><span class="text-uzi-500 font-bold">→</span><span>Programmatic SEO: 15 → 282 pages from one config file</span></div>
+        <div class="flex gap-3"><span class="text-uzi-500 font-bold">→</span><span>1 review = 7 social posts (YouTube, TikTok, X, Pinterest)</span></div>
+        <div class="flex gap-3"><span class="text-uzi-500 font-bold">→</span><span>The 4 revenue streams + when to add each one</span></div>
+        <div class="flex gap-3"><span class="text-uzi-500 font-bold">→</span><span>How to turn this playbook into a $497 paid course (optional)</span></div>
+      </div>
+    </section>
+
+    <!-- LESSONS -->
+    <section id="lessons" class="mb-16">
+      <h2 class="text-3xl font-bold text-ink-50 mb-8">5 lessons. 80 minutes. Free.</h2>
+      <div class="space-y-4">
+        {lessons.map(lesson => (
+          <details class="bg-ink-800/50 rounded-xl border border-ink-700 overflow-hidden group">
+            <summary class="cursor-pointer p-6 flex items-start gap-4 hover:bg-ink-800 transition-colors">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-uzi-500/20 text-uzi-500 font-black text-lg flex items-center justify-center">
+                {lesson.number}
+              </div>
+              <div class="flex-1">
+                <h3 class="text-lg font-bold text-ink-50 mb-1">{lesson.title}</h3>
+                <p class="text-sm text-ink-400 mb-2">{lesson.duration} · {lesson.summary}</p>
+              </div>
+              <div class="text-ink-400 group-open:rotate-180 transition-transform text-2xl">↓</div>
+            </summary>
+            <div class="px-6 pb-6 pt-2 border-t border-ink-700 bg-ink-900/30">
+              <h4 class="text-xs uppercase tracking-wider text-ink-500 mb-3">What you'll learn</h4>
+              <ul class="space-y-2 text-ink-200">
+                {lesson.topics.map(t => <li class="flex gap-2"><span class="text-uzi-500">+</span><span>{t}</span></li>)}
+              </ul>
+            </div>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- EMAIL CAPTURE -->
+    <section class="mb-16">
+      <Newsletter
+        variant="inline"
+        title="Get notified when each lesson goes live"
+        description="We release lessons every Friday. Get an email + a one-page summary. No spam."
+      />
+    </section>
+
+    <!-- SOCIAL PROOF -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-ink-50 mb-8 text-center">What people are saying</h2>
+      <div class="grid sm:grid-cols-3 gap-6">
+        {testimonials.map(t => (
+          <div class="bg-ink-800/50 rounded-xl p-6 border border-ink-700">
+            <p class="text-ink-200 italic mb-4">"{t.quote}"</p>
+            <div class="text-sm">
+              <div class="text-ink-50 font-semibold">{t.name}</div>
+              <div class="text-ink-500">{t.role}</div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-ink-50 mb-8">FAQ</h2>
+      <div class="space-y-4">
+        <details class="bg-ink-800/50 rounded-xl border border-ink-700 p-6">
+          <summary class="cursor-pointer text-ink-50 font-semibold">Is this really free?</summary>
+          <p class="text-ink-300 mt-3">Yes. 100% free. No credit card. No upsell inside the masterclass. We have a paid $497 course with the full system + tooling, but it's optional. The free version has everything you need to start.</p>
+        </details>
+        <details class="bg-ink-800/50 rounded-xl border border-ink-700 p-6">
+          <summary class="cursor-pointer text-ink-50 font-semibold">Do I need technical skills?</summary>
+          <p class="text-ink-300 mt-3">No. The playbook is the same whether you code or not. We use Astro + Cloudflare Pages in our build, but the steps work with WordPress, Ghost, or any static site. The 30-day test framework is platform-agnostic.</p>
+        </details>
+        <details class="bg-ink-800/50 rounded-xl border border-ink-700 p-6">
+          <summary class="cursor-pointer text-ink-50 font-semibold">How long until I make $10/day?</summary>
+          <p class="text-ink-300 mt-3">Realistic answer: 60-90 days for most operators. 30 days if you can dedicate 2+ hours/day to writing + social posting. The first $10 is the hardest — after that, it compounds.</p>
+        </details>
+        <details class="bg-ink-800/50 rounded-xl border border-ink-700 p-6">
+          <summary class="cursor-pointer text-ink-50 font-semibold">What if I get stuck?</summary>
+          <p class="text-ink-300 mt-3">Join the Discord community (free, link in the email). Operators help each other. The Uzi Network team monitors and answers weekly.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="text-center bg-gradient-to-br from-uzi-500/10 to-transparent border border-uzi-500/30 rounded-2xl p-12">
+      <h2 class="text-3xl font-black text-ink-50 mb-4">Ready to start?</h2>
+      <p class="text-ink-300 mb-8 max-w-xl mx-auto">The first lesson takes 12 minutes. By the end of it, you'll know exactly which niche to pick.</p>
+      <a href="#lessons" class="inline-block bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-4 px-8 rounded-xl text-lg transition-colors shadow-lg">
+        Start Lesson 1 →
+      </a>
+    </section>
+
+  </article>
+</BaseLayout>

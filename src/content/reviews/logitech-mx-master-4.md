@@ -45,6 +45,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Logitech MX Master 4 Review" description="39-day real-world test of the MX Master 4. The magspeed scroll wheel, multi-device pairing, and 70-day battery make this the best productivity mouse for power users.">
 
@@ -96,6 +97,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Logitech MX Master 4</a> is the productivity mouse to beat. The scroll wheel alone justifies the price for anyone who reads or edits long documents. Multi-device pairing is unmatched. Buy it if you work 8+ hours a day at a computer.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 39 days.</em></p>
 

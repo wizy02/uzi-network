@@ -40,6 +40,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Anker 727 Charging Station Review: One Brick to Rule Your Desk" description="The Anker 727 is the only charging solution you need at your desk. 6 ports, 100W total, surge protected. $80 vs $200+ for competitors. Replaces the mess of 4 se">
 
@@ -84,6 +85,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The Anker 727 is the only charging solution you need at your desk. 6 ports, 100W total, surge protected. $80 vs $200+ for competitors. Replaces the mess of 4 separate chargers.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 140 days.</em></p>
 

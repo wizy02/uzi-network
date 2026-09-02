@@ -41,6 +41,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Anker Soundcore Life Q35 Review: The $80 Headphones That Punch Way Above Their Price" description="The Anker Soundcore Life Q35 is the value pick in noise-cancelling headphones. LDAC support, 40-hour battery, $80. You give up the best-in-class ANC of the Sony">
 
@@ -85,6 +86,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The Anker Soundcore Life Q35 is the value pick in noise-cancelling headphones. LDAC support, 40-hour battery, $80. You give up the best-in-class ANC of the Sony XM6, but you keep 85% of the experience for 18% of the price.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 93 days.</em></p>
 

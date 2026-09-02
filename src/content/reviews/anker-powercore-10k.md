@@ -43,6 +43,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Anker PowerCore 10K Review" description="The $25 Anker PowerCore 10K is the everyday portable charger most people should buy. 63-day real-world test.">
 
@@ -95,6 +96,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Anker PowerCore 10K</a> is the portable charger most people should buy. $25, slim, reliable, from a brand that stands behind their products. Buy one. You won't regret it.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 63 days.</em></p>
 

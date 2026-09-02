@@ -45,6 +45,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Notion Calendar Review" description="The free calendar app that replaced Fantastical for me. 146-day test. Two-way Notion sync is the killer feature. Best free calendar for Mac + iPhone in 2026.">
 
@@ -94,6 +95,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p><a href="https://notion.so" rel="sponsored noopener" target="_blank">Notion Calendar</a> is the best free calendar for anyone in the Notion ecosystem. The two-way sync is the killer feature. If you're paying for Fantastical and not using natural language, switch. If you need natural language or you're on Android/Windows, stick with Fantastical.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you sign up through our links, we may earn a commission at no extra cost to you. We tested this product for 146 days.</em></p>
 

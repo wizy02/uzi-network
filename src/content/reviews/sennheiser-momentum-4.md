@@ -41,6 +41,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Sennheiser Momentum 4 Review: The Audiophile's Wireless Pick" description="The Sennheiser Momentum 4 is the audiophile's pick in wireless headphones. The sound is the best in the category — wide soundstage, accurate mids, controlled ba">
 
@@ -85,6 +86,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The Sennheiser Momentum 4 is the audiophile's pick in wireless headphones. The sound is the best in the category — wide soundstage, accurate mids, controlled bass. 60-hour battery is best-in-class. ANC is good, not great. If sound is your priority, this is the pick.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 130 days.</em></p>
 

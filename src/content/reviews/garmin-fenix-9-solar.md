@@ -44,6 +44,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Garmin Fenix 9 Solar Review" description="110-day real-world test of the Fenix 9 Solar. Best-in-class GPS, 30-day battery, solar charging. The outdoor watch king.">
 
@@ -95,6 +96,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Garmin Fenix 9 Solar</a> is the best outdoor watch for serious users. The battery alone justifies the price. If you hike, trail run, or backpack, buy it. If you're a casual gym-goer, save $700 and get the Instinct 2.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 110 days.</em></p>
 

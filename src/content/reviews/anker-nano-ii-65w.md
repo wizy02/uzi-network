@@ -41,6 +41,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Anker Nano II 65W Review: The Travel Charger to Beat" description="The Anker Nano II 65W is the travel charger I recommend to everyone. It folds flat, fits in any pocket, and charges a MacBook Air at full speed. $40 is the swee">
 
@@ -85,6 +86,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The Anker Nano II 65W is the travel charger I recommend to everyone. It folds flat, fits in any pocket, and charges a MacBook Air at full speed. $40 is the sweet spot.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 105 days.</em></p>
 

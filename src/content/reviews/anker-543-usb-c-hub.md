@@ -41,6 +41,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Anker 543 USB-C Hub Review: 8 Ports for $35" description="The Anker 543 is the laptop dock most people should buy. $35 gets you 8 ports including Ethernet and SD card readers. CalDigit charges $60+ for the same ports.">
 
@@ -85,6 +86,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The Anker 543 is the laptop dock most people should buy. $35 gets you 8 ports including Ethernet and SD card readers. CalDigit charges $60+ for the same ports.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 54 days.</em></p>
 

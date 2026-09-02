@@ -41,6 +41,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="TP-Link Kasa Smart Plug Review: The $13 Smart Plug That Works Everywhere" description="The Kasa HS103 is the smart plug most people should buy. $13, works with every ecosystem, no hub, reliable. The energy monitoring version (HS103P4) is $20 and w">
 
@@ -85,6 +86,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The Kasa HS103 is the smart plug most people should buy. $13, works with every ecosystem, no hub, reliable. The energy monitoring version (HS103P4) is $20 and worth it for power users.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 170 days.</em></p>
 

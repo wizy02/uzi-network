@@ -45,6 +45,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Aqara U200 Review" description="The U200 is the first HomeKit + Matter + Thread smart lock that doesn't need a hub. 32-day real-world test on a 5-year-old deadbolt. Best retrofit option for renters.">
 
@@ -96,6 +97,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Aqara U200</a> is the best no-hub HomeKit lock in 2026. The Matter support future-proofs it. The install is renter-friendly. If you're in the Apple ecosystem, this is the lock to buy.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 32 days.</em></p>
 

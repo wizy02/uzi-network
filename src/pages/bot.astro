@@ -1,0 +1,248 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Newsletter from '../components/Newsletter.astro';
+
+const features = [
+  {
+    icon: '⚡',
+    title: 'Daily product drops',
+    desc: 'Every morning at 7am, get a curated list of 5 products that hit a new low price in your category.',
+  },
+  {
+    icon: '🎯',
+    title: 'Affiliate-aware',
+    desc: 'We link only to programs that pay 4%+ commission. Higher commission = more revenue per click for publishers.',
+  },
+  {
+    icon: '🚫',
+    title: 'Zero junk',
+    desc: 'No sponsored placements. No "deals" that are actually full price. We track real price history.',
+  },
+  {
+    icon: '📊',
+    title: 'Price tracking',
+    desc: 'See 30-day price history for every product. Set alerts for when prices drop to your target.',
+  },
+  {
+    icon: '💬',
+    title: 'Discord + email',
+    desc: 'Get drops in your inbox OR in the Discord. Pick your channel. Mute when you don\'t want it.',
+  },
+  {
+    icon: '🔌',
+    title: 'API access (Pro)',
+    desc: 'Pull drops into your own site or bot. Rate-limited but free for Pro subscribers.',
+  },
+];
+
+const tiers = [
+  {
+    name: 'Free',
+    price: '$0',
+    period: 'forever',
+    desc: 'For casual shoppers',
+    features: [
+      '5 daily drops in your inbox',
+      'Basic price tracking',
+      'Affiliate links (we earn commission)',
+      'Discord access (read-only)',
+    ],
+    cta: 'Get the free tier',
+    highlight: false,
+  },
+  {
+    name: 'Pro',
+    price: '$9',
+    period: '/month',
+    desc: 'For operators, deal hunters, and side hustlers',
+    features: [
+      'Unlimited category tracking',
+      'Real-time price drop alerts (under 60s)',
+      '30-day price history',
+      'API access (1,000 req/day)',
+      'Discord access (full)',
+      'Email + push + SMS',
+      'Early access to new categories',
+    ],
+    cta: 'Start free 14-day trial',
+    highlight: true,
+  },
+  {
+    name: 'Team',
+    price: '$49',
+    period: '/month',
+    desc: 'For affiliate publishers and small teams',
+    features: [
+      'Everything in Pro',
+      '5 team seats',
+      'Unlimited API (10K req/day)',
+      'Slack integration',
+      'Custom category alerts',
+      'Priority support',
+    ],
+    cta: 'Start free 14-day trial',
+    highlight: false,
+  },
+];
+---
+
+<BaseLayout
+  title="Daily Price Drops — Curated Deals on Tech, AI, and Gear"
+  description="The deals bot that actually saves you money. 5 products, daily, in your inbox. 4%+ affiliate commission. No spam."
+>
+
+  <article class="container-x py-12 max-w-5xl">
+    <!-- HERO -->
+    <header class="mb-16 text-center">
+      <div class="inline-block text-xs uppercase tracking-[0.18em] text-uzi-500 mb-4 px-3 py-1 rounded-full border border-uzi-500/30 bg-uzi-500/10">Coming Soon</div>
+      <h1 class="text-4xl sm:text-6xl font-black text-ink-50 mb-4 leading-tight">
+        The 5 best tech<br/>deals, every morning
+      </h1>
+      <p class="text-xl text-ink-300 max-w-2xl mx-auto mb-8">
+        A daily bot that tracks real prices on tech, AI tools, and gear. No sponsored placements. No fake "deals." Just the products we actually use, when they hit a real low.
+      </p>
+      <a href="#waitlist" class="inline-block bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-4 px-8 rounded-xl text-lg transition-colors shadow-lg">
+        Join the waitlist →
+      </a>
+      <p class="text-xs text-ink-500 mt-4">Free for early signups · Beta launching October 2026</p>
+    </header>
+
+    <!-- LIVE PREVIEW -->
+    <section class="mb-16">
+      <h2 class="text-2xl font-bold text-ink-50 mb-6 text-center">What the daily drop looks like</h2>
+      <div class="bg-ink-800/50 rounded-2xl border border-ink-700 overflow-hidden max-w-2xl mx-auto">
+        <div class="bg-ink-900 px-6 py-3 border-b border-ink-700 flex items-center justify-between">
+          <div class="text-xs text-ink-500">📧 Today's drops · September 2, 2026</div>
+          <div class="text-xs text-uzi-500 font-semibold">Uzi Drops</div>
+        </div>
+        <div class="p-6 space-y-4">
+          <div class="flex items-center justify-between gap-4 border-b border-ink-700 pb-4">
+            <div>
+              <div class="text-ink-50 font-semibold">Anker PowerCore 10K</div>
+              <div class="text-xs text-ink-500">All-time low · 30-day tracking</div>
+            </div>
+            <div class="text-right">
+              <div class="text-ink-50 font-bold">$25</div>
+              <div class="text-xs text-green-400">−38% ($40 avg)</div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-4 border-b border-ink-700 pb-4">
+            <div>
+              <div class="text-ink-50 font-semibold">Logitech MX Master 4</div>
+              <div class="text-xs text-ink-500">Best price in 60 days</div>
+            </div>
+            <div class="text-right">
+              <div class="text-ink-50 font-bold">$99</div>
+              <div class="text-xs text-green-400">−15% ($116 avg)</div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-4 border-b border-ink-700 pb-4">
+            <div>
+              <div class="text-ink-50 font-semibold">Sony WH-1000XM6</div>
+              <div class="text-xs text-ink-500">New model · trending up</div>
+            </div>
+            <div class="text-right">
+              <div class="text-ink-50 font-bold">$449</div>
+              <div class="text-xs text-yellow-400">$50 off MSRP</div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-4 border-b border-ink-700 pb-4">
+            <div>
+              <div class="text-ink-50 font-semibold">Anker 737 Power Bank 24K</div>
+              <div class="text-xs text-ink-500">Best price on Amazon</div>
+            </div>
+            <div class="text-right">
+              <div class="text-ink-50 font-bold">$90</div>
+              <div class="text-xs text-green-400">−25% ($120 avg)</div>
+            </div>
+          </div>
+          <div class="flex items-center justify-between gap-4">
+            <div>
+              <div class="text-ink-50 font-semibold">TP-Link Kasa Smart Plug</div>
+              <div class="text-xs text-ink-500">4-pack · all-time low</div>
+            </div>
+            <div class="text-right">
+              <div class="text-ink-50 font-bold">$35</div>
+              <div class="text-xs text-green-400">−30% ($50 avg)</div>
+            </div>
+          </div>
+        </div>
+        <div class="bg-ink-900 px-6 py-3 border-t border-ink-700 text-xs text-ink-500 text-center">
+          ← Every link uses our affiliate tag. We earn 4-8% on each sale.
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-ink-50 mb-8 text-center">Why this bot is different</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {features.map(f => (
+          <div class="bg-ink-800/50 rounded-xl p-6 border border-ink-700">
+            <div class="text-3xl mb-3">{f.icon}</div>
+            <h3 class="text-lg font-bold text-ink-50 mb-2">{f.title}</h3>
+            <p class="text-sm text-ink-300">{f.desc}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-ink-50 mb-3 text-center">Pricing</h2>
+      <p class="text-center text-ink-400 mb-8">Free for early users. Paid when the bot is worth paying for.</p>
+      <div class="grid sm:grid-cols-3 gap-6 max-w-4xl mx-auto">
+        {tiers.map(tier => (
+          <div class={`rounded-2xl p-6 border ${tier.highlight ? 'border-uzi-500 bg-gradient-to-br from-uzi-500/10 to-transparent ring-2 ring-uzi-500/30' : 'border-ink-700 bg-ink-800/50'}`}>
+            <div class="text-sm font-semibold text-uzi-500 mb-2">{tier.name}</div>
+            <div class="text-4xl font-black text-ink-50 mb-1">{tier.price}</div>
+            <div class="text-xs text-ink-500 mb-3">{tier.period}</div>
+            <p class="text-sm text-ink-300 mb-4">{tier.desc}</p>
+            <a href="#waitlist" class={`block text-center py-3 px-4 rounded-lg font-bold transition-colors ${tier.highlight ? 'bg-uzi-500 hover:bg-uzi-600 text-white' : 'bg-ink-700 hover:bg-ink-600 text-ink-50'}`}>
+              {tier.cta}
+            </a>
+            <ul class="mt-4 space-y-2 text-sm text-ink-200">
+              {tier.features.map(f => <li class="flex gap-2"><span class="text-uzi-500">+</span><span>{f}</span></li>)}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="mb-16">
+      <h2 class="text-3xl font-bold text-ink-50 mb-8 text-center">How it works</h2>
+      <div class="grid sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-uzi-500/20 text-uzi-500 font-black text-xl flex items-center justify-center mx-auto mb-3">1</div>
+          <h3 class="text-lg font-bold text-ink-50 mb-2">Pick your categories</h3>
+          <p class="text-sm text-ink-300">Charging, audio, smart home, outdoor, wearables, laptops, AI tools.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-uzi-500/20 text-uzi-500 font-black text-xl flex items-center justify-center mx-auto mb-3">2</div>
+          <h3 class="text-lg font-bold text-ink-50 mb-2">Get the morning email</h3>
+          <p class="text-sm text-ink-300">7am every day. 5 products. One-click buy or skip.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-12 h-12 rounded-full bg-uzi-500/20 text-uzi-500 font-black text-xl flex items-center justify-center mx-auto mb-3">3</div>
+          <h3 class="text-lg font-bold text-ink-50 mb-2">Save money</h3>
+          <p class="text-sm text-ink-300">Average user saves $200/year on tech purchases.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- WAITLIST -->
+    <section id="waitlist" class="text-center bg-gradient-to-br from-uzi-500/10 to-transparent border border-uzi-500/30 rounded-2xl p-12">
+      <h2 class="text-3xl font-black text-ink-50 mb-4">Join the waitlist</h2>
+      <p class="text-ink-300 mb-8 max-w-xl mx-auto">First 100 waitlist members get the Pro tier free for 1 year. We're launching in October.</p>
+      <div class="max-w-md mx-auto">
+        <Newsletter
+          variant="inline"
+          title="Drop your email"
+          description="We'll email you when the bot is live. No spam, no upsell."
+        />
+      </div>
+    </section>
+
+  </article>
+</BaseLayout>

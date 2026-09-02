@@ -41,6 +41,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Govee Glide Wall Light Review: The Best RGB Lighting for Streamers and Gamers" description="The Govee Glide is the most flexible RGB lighting system. Modular design means you can build any shape. Music sync is great for streaming. Matter support is a p">
 
@@ -85,6 +86,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The Govee Glide is the most flexible RGB lighting system. Modular design means you can build any shape. Music sync is great for streaming. Matter support is a plus. $80 starter is fair for what you get.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 28 days.</em></p>
 

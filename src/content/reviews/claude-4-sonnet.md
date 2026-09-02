@@ -44,6 +44,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Anthropic Claude 4 Sonnet Review" description="A 48-day real-world test of Claude 4 Sonnet for coding, writing, and analysis. Honest verdict from daily use, not a spec sheet.">
 
@@ -104,6 +105,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>If you do serious knowledge work, <a href="https://anthropic.com" rel="sponsored noopener" target="_blank">Claude Pro is the AI worth paying for</a>. The reasoning quality and the 200K context window make it a daily driver that actually delivers. For casual users, the free tier is enough. For API users, start with Haiku, escalate to Sonnet when you need it.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you sign up through our links, we may earn a commission at no extra cost to you. We tested this product for 48 days before writing. All opinions are our own.</em></p>
 

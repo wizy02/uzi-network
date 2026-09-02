@@ -44,6 +44,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
 import Newsletter from '../../components/Newsletter.astro';
+import MasterclassCTA from '../../components/MasterclassCTA.astro';
 
 <BaseLayout title="Sony WH-1000XM6 Review" description="The XM6 is back on top for active noise cancellation. 73-day real-world test covering office, travel, and gym. Worth the $50 price hike from the XM5? Yes.">
 
@@ -94,6 +95,8 @@ import Newsletter from '../../components/Newsletter.astro';
 
     <h2>Final verdict</h2>
     <p>The <a href="https://www.amazon.com?tag=uzinetwork20-20" rel="sponsored noopener" target="_blank">Sony WH-1000XM6</a> is the noise-cancelling king. If you're upgrading from the XM3 or older, it's a no-brainer. XM5 owners — wait for the XM7 or the inevitable price drop on the XM6. Anyone on a budget — the XM4 at $250 is still excellent.</p>
+
+    <MasterclassCTA />
 
     <p class="text-ink-400 text-xs mt-8"><em>Disclosure: This review contains affiliate links. If you buy through our links, we may earn a commission at no extra cost to you. We tested this product for 73 days.</em></p>
 
