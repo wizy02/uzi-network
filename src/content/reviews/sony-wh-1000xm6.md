@@ -43,6 +43,7 @@ comparedAgainst:
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 <BaseLayout title="Sony WH-1000XM6 Review" description="The XM6 is back on top for active noise cancellation. 73-day real-world test covering office, travel, and gym. Worth the $50 price hike from the XM5? Yes.">
 
@@ -61,6 +62,8 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
 
     <h2>The 60-second take</h2>
     <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Sony WH-1000XM6</a> is the best noise-cancelling headphone money can buy in 2026. The ANC is meaningfully better than the XM5 and the Bose QC Ultra. The call quality — previously a Sony weakness — is finally on par with Bose. If you can afford $449, this is the pick.</p>
+
+    <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The noise cancellation is genuinely better</h2>
     <p>I'll skip the lab test. Here's what matters: on a cross-country flight with a screaming baby two rows back, the <a href="https://amazon.com" rel="sponsored noopener" target="_blank">XM6</a> reduced the baby's cry to a faint murmur. The Bose QC Ultra, the previous gold standard, let more of it through. On the NYC subway, the XM6's adaptive ANC killed the screeching brakes in a way the XM5 just didn't.</p>

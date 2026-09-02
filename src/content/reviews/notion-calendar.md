@@ -44,6 +44,7 @@ comparedAgainst:
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 <BaseLayout title="Notion Calendar Review" description="The free calendar app that replaced Fantastical for me. 146-day test. Two-way Notion sync is the killer feature. Best free calendar for Mac + iPhone in 2026.">
 
@@ -62,6 +63,8 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
 
     <h2>The 60-second take</h2>
     <p><a href="https://notion.so" rel="sponsored noopener" target="_blank">Notion Calendar</a> is the best free calendar app for Mac + iPhone in 2026. The two-way Notion database sync is the killer feature — every event on your calendar can be a row in a Notion database, automatically. If you use Notion and you're still on Apple Calendar, switch. It's free and it's a 10x improvement.</p>
+
+    <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The Notion sync changes everything</h2>
     <p>Here's the workflow: I have a Notion database called "Meetings" with columns for person, company, agenda, outcome. Every meeting I add to my calendar through <a href="https://notion.so" rel="sponsored noopener" target="_blank">Notion Calendar</a> automatically creates a row in that database. When I update the meeting's outcome in Notion, the calendar event updates. It's two-way sync, free, and works better than any paid competitor.</p>

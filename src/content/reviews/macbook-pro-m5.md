@@ -44,6 +44,7 @@ comparedAgainst:
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 <BaseLayout title="MacBook Pro M5 Review" description="Real-world test of Apple's M5 MacBook Pro. 23 days of daily use for coding, video editing, and writing. The M-series finally feels like a real generation.">
 
@@ -62,6 +63,8 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
 
     <h2>The 60-second take</h2>
     <p>The M5 is the first MacBook Pro in three years that feels like a <em>real</em> generation, not a refresh. Performance is up 30% over the M3 in our benchmarks — and more importantly, you feel it in the keyboard, not just the spec sheet. <a href="https://amazon.com" rel="sponsored noopener" target="_blank">The M5 MacBook Pro</a> is the upgrade worth paying for if you're coming from anything older than M3.</p>
+
+    <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>What changed</h2>
     <p>Three things actually matter:</p>

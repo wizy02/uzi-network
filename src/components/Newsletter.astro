@@ -1,69 +1,139 @@
 ---
-import { SITE, AFFILIATE_DISCLOSURE } from '../lib/site';
+interface Props {
+  variant?: 'inline' | 'footer' | 'exit';
+  title?: string;
+  description?: string;
+}
+
+const {
+  variant = 'inline',
+  title = 'Get the 5 best tech deals this week',
+  description = 'Free weekly email. The 5 best deals on tech we actually tested. No spam, unsubscribe anytime.',
+} = Astro.props;
+
+const formId = `newsletter-${variant}`;
 ---
 
-<section id="newsletter" class="border-y border-ink-800 bg-gradient-to-br from-ink-800/50 via-ink-900 to-ink-900">
-  <div class="container-x py-14">
-    <div class="grid items-center gap-8 md:grid-cols-2">
-      <div>
-        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Weekly drops</p>
-        <h2 class="mt-2 text-3xl font-bold text-white sm:text-4xl">
-          The best tech and AI finds — sent every Friday.
-        </h2>
-        <p class="mt-3 max-w-md text-ink-300">
-          One email. Five hand-picked things we tested this week. No spam, no recycled press releases.
-        </p>
-        <p class="mt-4 text-2xs text-ink-500 max-w-md">{AFFILIATE_DISCLOSURE.split('.')[0]}.</p>
-      </div>
-
-      <form
-        id="newsletter-form"
-        class="w-full max-w-md md:ml-auto"
-        action="/api/subscribe"
-        method="POST"
-        novalidate
+{variant === 'inline' && (
+  <div class="not-prose my-12 rounded-2xl border border-uzi-500/30 bg-gradient-to-br from-uzi-500/10 to-transparent p-8">
+    <h3 class="text-2xl font-bold text-ink-50 mb-2">{title}</h3>
+    <p class="text-ink-300 mb-6">{description}</p>
+    <form
+      id={formId}
+      action="https://buttondown.email/api/emails/embed-subscribe/uzinetwork"
+      method="post"
+      target="popupwindow"
+      onsubmit="window.open('https://buttondown.email/uzinetwork', 'popupwindow')"
+      class="flex flex-col sm:flex-row gap-3"
+    >
+      <input
+        type="email"
+        name="email"
+        id={`${formId}-email`}
+        placeholder="you@example.com"
+        required
+        class="flex-1 px-4 py-3 rounded-lg bg-ink-900 border border-ink-700 text-ink-50 placeholder-ink-500 focus:outline-none focus:border-uzi-500"
+      />
+      <button
+        type="submit"
+        class="bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-3 px-6 rounded-lg transition-colors whitespace-nowrap"
       >
-        <label for="email" class="sr-only">Email address</label>
-        <div class="flex flex-col gap-2 sm:flex-row">
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            placeholder="you@domain.com"
-            autocomplete="email"
-            class="flex-1 rounded-lg bg-ink-800 px-4 py-3 text-sm text-white placeholder-ink-500 ring-1 ring-ink-700 focus:ring-accent"
-          />
-          <button type="submit" class="btn-primary px-5 py-3">Subscribe</button>
-        </div>
-        <p id="newsletter-msg" class="mt-3 min-h-[1.25rem] text-sm text-ink-300" aria-live="polite"></p>
-        <p class="mt-2 text-2xs text-ink-500">By subscribing you agree to receive marketing emails. Unsubscribe any time.</p>
+        Subscribe free
+      </button>
+    </form>
+    <p class="text-xs text-ink-500 mt-3">Join 0+ readers · One-click unsubscribe · No spam, ever</p>
+  </div>
+)}
+
+{variant === 'footer' && (
+  <form
+    id={formId}
+    action="https://buttondown.email/api/emails/embed-subscribe/uzinetwork"
+    method="post"
+    target="popupwindow"
+    onsubmit="window.open('https://buttondown.email/uzinetwork', 'popupwindow')"
+    class="flex flex-col sm:flex-row gap-2"
+  >
+    <input
+      type="email"
+      name="email"
+      id={`${formId}-email`}
+      placeholder="you@example.com"
+      required
+      class="flex-1 px-3 py-2 rounded-lg bg-ink-900 border border-ink-700 text-ink-50 placeholder-ink-500 text-sm focus:outline-none focus:border-uzi-500"
+    />
+    <button
+      type="submit"
+      class="bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-2 px-4 rounded-lg transition-colors text-sm whitespace-nowrap"
+    >
+      Subscribe
+    </button>
+  </form>
+)}
+
+{variant === 'exit' && (
+  <div id="exit-modal" class="hidden fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4">
+    <div class="bg-ink-800 rounded-2xl border border-uzi-500/30 p-8 max-w-md w-full relative">
+      <button
+        id="exit-close"
+        type="button"
+        class="absolute top-4 right-4 text-ink-400 hover:text-ink-50 text-2xl"
+        aria-label="Close"
+      >×</button>
+      <h3 class="text-2xl font-bold text-ink-50 mb-2">Before you go —</h3>
+      <p class="text-ink-300 mb-6">Get the 5 best tech deals this week. Free. No spam.</p>
+      <form
+        id={formId}
+        action="https://buttondown.email/api/emails/embed-subscribe/uzinetwork"
+        method="post"
+        target="popupwindow"
+        onsubmit="document.getElementById('exit-modal').classList.add('hidden'); window.open('https://buttondown.email/uzinetwork', 'popupwindow')"
+        class="flex flex-col gap-3"
+      >
+        <input
+          type="email"
+          name="email"
+          id={`${formId}-email`}
+          placeholder="you@example.com"
+          required
+          class="px-4 py-3 rounded-lg bg-ink-900 border border-ink-700 text-ink-50 placeholder-ink-500 focus:outline-none focus:border-uzi-500"
+        />
+        <button
+          type="submit"
+          class="bg-uzi-500 hover:bg-uzi-600 text-white font-bold py-3 px-6 rounded-lg transition-colors"
+        >
+          Subscribe free
+        </button>
       </form>
+      <button
+        id="exit-no-thanks"
+        type="button"
+        class="text-xs text-ink-500 hover:text-ink-300 mt-3 w-full text-center"
+      >No thanks, I'll pay full price</button>
     </div>
   </div>
-</section>
 
-<script>
-  const form = document.getElementById('newsletter-form') as HTMLFormElement | null;
-  const msg = document.getElementById('newsletter-msg');
-  if (form && msg) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const data = new FormData(form);
-      const btn = form.querySelector('button[type=submit]') as HTMLButtonElement;
-      btn.disabled = true; btn.textContent = '...';
-      try {
-        const res = await fetch('/api/subscribe', { method: 'POST', body: data });
-        const json = await res.json();
-        msg.textContent = json.message ?? (res.ok ? 'Subscribed.' : 'Something went wrong.');
-        msg.className = `mt-3 min-h-[1.25rem] text-sm ${res.ok ? 'text-green-400' : 'text-red-400'}`;
-        if (res.ok) form.reset();
-      } catch {
-        msg.textContent = 'Network error. Try again.';
-        msg.className = 'mt-3 min-h-[1.25rem] text-sm text-red-400';
-      } finally {
-        btn.disabled = false; btn.textContent = 'Subscribe';
+  <script is:inline>
+    (function() {
+      const modal = document.getElementById('exit-modal');
+      const close = document.getElementById('exit-close');
+      const noThanks = document.getElementById('exit-no-thanks');
+      if (!modal) return;
+      let shown = false;
+      let dismissed = sessionStorage.getItem('exit-dismissed');
+      document.addEventListener('mouseout', function(e) {
+        if (shown || dismissed) return;
+        if (e.clientY <= 0 && e.relatedTarget == null) {
+          modal.classList.remove('hidden');
+          shown = true;
+        }
+      });
+      function hide() {
+        modal.classList.add('hidden');
+        sessionStorage.setItem('exit-dismissed', '1');
       }
-    });
-  }
-</script>
+      if (close) close.addEventListener('click', hide);
+      if (noThanks) noThanks.addEventListener('click', hide);
+    })();
+  </script>
+)}

@@ -43,6 +43,7 @@ comparedAgainst:
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 <BaseLayout title="Anthropic Claude 4 Sonnet Review" description="A 48-day real-world test of Claude 4 Sonnet for coding, writing, and analysis. Honest verdict from daily use, not a spec sheet.">
 
@@ -61,6 +62,8 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
 
     <h2>The 60-second take</h2>
     <p>I've used <a href="https://anthropic.com" rel="sponsored noopener" target="_blank">Claude Pro</a> every single workday for 48 days. It's the first AI that hasn't made me dumber — it makes me faster without making me lazier. The reasoning is genuinely better than the competition on anything that requires thinking.</p>
+
+    <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <p>The catch: it refuses more than competitors on edge cases, and the API costs add up if you go heavy. For a monthly subscription, <a href="https://anthropic.com" rel="sponsored noopener" target="_blank">$20/month for Claude Pro</a> is the best money you can spend on an AI tool right now.</p>
 

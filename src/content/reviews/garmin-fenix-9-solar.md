@@ -43,6 +43,7 @@ comparedAgainst:
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 <BaseLayout title="Garmin Fenix 9 Solar Review" description="110-day real-world test of the Fenix 9 Solar. Best-in-class GPS, 30-day battery, solar charging. The outdoor watch king.">
 
@@ -61,6 +62,8 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
 
     <h2>The 60-second take</h2>
     <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Garmin Fenix 9 Solar</a> is the best outdoor watch you can buy. Period. The 30-day battery is real. The solar charging adds 2–3 days per week of meaningful sun. The GPS is best-in-class. If you spend serious time outside, this is the watch.</p>
+
+    <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The battery is genuinely 30 days</h2>
     <p>I won't bore you with a battery graph. Here's what happened: I charged the <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Fenix 9 Solar</a> to 100% on day 1. With daily training (1–2 hours of GPS-tracked activity), sleep tracking, and 24/7 heart rate, I hit 22% on day 28. On day 29, I charged it. That's 30 days of real-world use.</p>

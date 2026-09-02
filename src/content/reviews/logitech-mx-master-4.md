@@ -44,6 +44,7 @@ comparedAgainst:
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 <BaseLayout title="Logitech MX Master 4 Review" description="39-day real-world test of the MX Master 4. The magspeed scroll wheel, multi-device pairing, and 70-day battery make this the best productivity mouse for power users.">
 
@@ -62,6 +63,8 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
 
     <h2>The 60-second take</h2>
     <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Logitech MX Master 4</a> is the best productivity mouse you can buy. The magspeed scroll wheel is genuinely faster than any other mouse for long documents. Multi-device pairing is the best in the category. If you work 8+ hours a day at a computer, this mouse pays for itself.</p>
+
+    <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The scroll wheel is the killer feature</h2>
     <p>Most mice have a scroll wheel. The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">MX Master 4's</a> magspeed wheel is something else. It freewheels for hyper-fast scrolling through 500-page PDFs, then clicks back into ratchet mode for precise work. Switching between modes is automatic based on how fast you flick.</p>

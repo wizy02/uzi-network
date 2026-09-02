@@ -44,6 +44,7 @@ comparedAgainst:
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ReviewBox from '../../components/ReviewBox.astro';
 import ComparisonTable from '../../components/ComparisonTable.astro';
+import Newsletter from '../../components/Newsletter.astro';
 
 <BaseLayout title="Aqara U200 Review" description="The U200 is the first HomeKit + Matter + Thread smart lock that doesn't need a hub. 32-day real-world test on a 5-year-old deadbolt. Best retrofit option for renters.">
 
@@ -62,6 +63,8 @@ import ComparisonTable from '../../components/ComparisonTable.astro';
 
     <h2>The 60-second take</h2>
     <p>The <a href="https://amazon.com" rel="sponsored noopener" target="_blank">Aqara U200</a> is the best smart lock for people who want HomeKit + Matter without buying a separate hub. The install takes 15 minutes and works on any standard deadbolt. The $229 price is up from the U100's $179, but the no-hub + Matter support is worth the premium.</p>
+
+    <Newsletter variant="inline" title="Want me to email you when prices drop?" description="Free weekly deals email. Tested products, current prices, no spam." />
 
     <h2>The install is genuinely 15 minutes</h2>
     <p>I'm not a handy person. I installed the <a href="https://amazon.com" rel="sponsored noopener" target="_blank">U200</a> on a 5-year-old Kwikset deadbolt in 15 minutes. No door modification. No drilling. The included instructions are actually good. The Aqara app walks you through the WiFi or Thread setup step-by-step.</p>
