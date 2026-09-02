@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { PRODUCTS } from '../../lib/catalog';
+
+// Public analytics dashboard. Visible to anyone with the URL.
+// (We rate-limit at the Cloudflare layer via firewall rules if needed.)
+// Query string: ?days=7
+
+const days = parseInt(Astro.url.searchParams.get('days') || '7');
+const today = new Date();
+const dates: string[] = [];
+for (let i = days - 1; i >= 0; i--) {
+  const d = new Date(today);
+  d.setUTCDate(d.getUTCDate() - i);
+  dates.push(d.toISOString().slice(0, 10));
+}
+
+const totalPVs = 0; // populated client-side
+---
+
+<BaseLayout title="Analytics — Uzi Network" description="Site analytics dashboard." noIndex={true}>
+  <article class="container-x py-12 max-w-4xl">
+    <header class="mb-8">
+      <h1 class="text-4xl font-black text-ink-50 mb-3">Analytics</h1>
+      <p class="text-ink-300">Last {days} days · Live from Cloudflare</p>
+    </header>
+
+    <div id="loading" class="text-ink-400">Loading…</div>
+
+    <div id="dashboard" class="hidden space-y-8">
+      <section class="bg-ink-800/50 rounded-2xl p-6 border border-ink-700">
+        <h2 class="text-xl font-bold text-ink-50 mb-4">Pageviews by day</h2>
+        <div id="chart-days" class="space-y-2"></div>
+        <div class="mt-6 pt-6 border-t border-ink-700 grid grid-cols-3 gap-4 text-center">
+          <div>
+            <div class="text-3xl font-black text-uzi-500" id="stat-total">0</div>
+            <div class="text-xs text-ink-400 mt-1">Total pageviews</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-uzi-500" id="stat-avg">0</div>
+            <div class="text-xs text-ink-400 mt-1">Daily average</div>
+          </div>
+          <div>
+            <div class="text-3xl font-black text-uzi-500" id="stat-today">0</div>
+            <div class="text-xs text-ink-400 mt-1">Today</div>
+          </div>
+        </div>
+      </section>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <section class="bg-ink-800/50 rounded-2xl p-6 border border-ink-700">
+          <h2 class="text-xl font-bold text-ink-50 mb-4">Top pages</h2>
+          <div id="top-pages" class="space-y-2"></div>
+        </section>
+
+        <section class="bg-ink-800/50 rounded-2xl p-6 border border-ink-700">
+          <h2 class="text-xl font-bold text-ink-50 mb-4">Traffic sources</h2>
+          <div id="top-sources" class="space-y-2"></div>
+        </section>
+
+        <section class="bg-ink-800/50 rounded-2xl p-6 border border-ink-700">
+          <h2 class="text-xl font-bold text-ink-50 mb-4">Devices</h2>
+          <div id="top-devices" class="space-y-2"></div>
+        </section>
+
+        <section class="bg-ink-800/50 rounded-2xl p-6 border border-ink-700">
+          <h2 class="text-xl font-bold text-ink-50 mb-4">All products</h2>
+          <div class="space-y-1 text-sm">
+            {PRODUCTS.map(p => (
+              <a href={`/reviews/${p.slug}/`} class="block text-uzi-500 hover:underline">/reviews/{p.slug}/</a>
+            ))}
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <script is:inline define:vars={{ days, dates }}>
+      // Fetch all KV keys for the date range
+      // Note: KV doesn't support server-side queries from Pages without a token.
+      // We expose the raw values via a worker endpoint instead.
+      async function load() {
+        const allPVs = await Promise.all(dates.map(async d => {
+          const r = await fetch(`/api/track?date=${d}`);
+          const j = await r.json();
+          return { date: d, total: j.total || 0 };
+        }));
+
+        const totalPVs = allPVs.reduce((s, d) => s + d.total, 0);
+        const todayPVs = allPVs[allPVs.length - 1].total;
+        const avgPVs = Math.round(totalPVs / allPVs.length);
+
+        document.getElementById('stat-total').textContent = totalPVs.toLocaleString();
+        document.getElementById('stat-avg').textContent = avgPVs.toLocaleString();
+        document.getElementById('stat-today').textContent = todayPVs.toLocaleString();
+
+        const maxDay = Math.max(1, ...allPVs.map(d => d.total));
+        document.getElementById('chart-days').innerHTML = allPVs.map(d => {
+          const pct = (d.total / maxDay * 100).toFixed(1);
+          return `
+            <div class="flex items-center gap-3">
+              <div class="text-xs text-ink-400 w-20">${d.date}</div>
+              <div class="flex-1 bg-ink-900 rounded-full h-6 overflow-hidden">
+                <div class="bg-uzi-500 h-full rounded-full" style="width:${pct}%"></div>
+              </div>
+              <div class="text-sm text-ink-200 w-12 text-right">${d.total}</div>
+            </div>
+          `;
+        }).join('');
+
+        // Top pages, sources, devices
+        const topPages = await fetch('/api/track?type=paths&days=' + days).then(r => r.json());
+        const topSources = await fetch('/api/track?type=sources&days=' + days).then(r => r.json());
+        const topDevices = await fetch('/api/track?type=devices&days=' + days).then(r => r.json());
+
+        function renderList(elId, items) {
+          const max = Math.max(1, ...items.map(i => i.value));
+          document.getElementById(elId).innerHTML = items.map(i => {
+            const pct = (i.value / max * 100).toFixed(1);
+            return `
+              <div class="flex items-center gap-3">
+                <div class="text-sm text-ink-200 flex-1 truncate">${i.key}</div>
+                <div class="bg-ink-900 rounded-full h-4 w-20 overflow-hidden">
+                  <div class="bg-uzi-500 h-full" style="width:${pct}%"></div>
+                </div>
+                <div class="text-xs text-ink-400 w-8 text-right">${i.value}</div>
+              </div>
+            `;
+          }).join('') || '<div class="text-ink-500 text-sm">No data yet</div>';
+        }
+
+        renderList('top-pages', topPages.items || []);
+        renderList('top-sources', topSources.items || []);
+        renderList('top-devices', topDevices.items || []);
+
+        document.getElementById('loading').classList.add('hidden');
+        document.getElementById('dashboard').classList.remove('hidden');
+      }
+
+      load().catch(e => {
+        document.getElementById('loading').textContent = 'No data yet — analytics will appear after first visits.';
+      });
+    </script>
+  </article>
+</BaseLayout>

@@ -6,7 +6,7 @@ const reviews = defineCollection({
   schema: z.object({
     title: z.string(),
     brand: z.string(),
-    category: z.enum(['ai', 'laptops', 'audio', 'wearables', 'smart-home', 'productivity']),
+    category: z.enum(['ai', 'laptops', 'audio', 'wearables', 'smart-home', 'productivity', 'charging', 'outdoor', 'cameras', 'office', 'health']),
     price: z.string(),
     priceUsd: z.number().optional(),
     rating: z.number().min(0).max(5),
