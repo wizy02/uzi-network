@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const use_cases = [
+  {
+    title: 'I want to write faster',
+    icon: '✍️',
+    tools: [
+      { name: 'Claude Pro', price: '$20/mo', why: 'Best for long-form, honest' },
+      { name: 'Jasper AI', price: '$49/mo', why: 'Brand voice training' },
+      { name: 'Copy.ai', price: 'Free + $49 Pro', why: 'Free tier, 90+ templates' },
+    ],
+  },
+  {
+    title: 'I want to automate my work',
+    icon: '⚡',
+    tools: [
+      { name: 'Make.com', price: '$9/mo', why: 'Visual workflows, 1000+ apps' },
+      { name: 'Zapier', price: '$20/mo', why: 'Easier to learn, more apps' },
+      { name: 'n8n', price: 'Free self-host', why: 'Open-source alternative' },
+    ],
+  },
+  {
+    title: 'I want to make videos',
+    icon: '🎬',
+    tools: [
+      { name: 'Descript', price: '$24/mo', why: 'Edit video by editing text' },
+      { name: 'Pictory', price: '$19/mo', why: 'Turn posts into videos' },
+      { name: 'ElevenLabs', price: '$5/mo', why: 'AI voice for narration' },
+    ],
+  },
+  {
+    title: 'I want to rank in Google',
+    icon: '🔍',
+    tools: [
+      { name: 'Surfer SEO', price: '$89/mo', why: 'AI content optimization' },
+      { name: 'Ahrefs', price: '$99/mo', why: 'Best backlink analysis' },
+      { name: 'Perplexity', price: '$20/mo', why: 'AI search for research' },
+    ],
+  },
+  {
+    title: 'I want to code faster',
+    icon: '💻',
+    tools: [
+      { name: 'Cursor', price: '$20/mo', why: 'VS Code with AI built in' },
+      { name: 'Claude Pro', price: '$20/mo', why: 'Best for debugging, refactoring' },
+      { name: 'Warp', price: 'Free', why: 'AI terminal' },
+    ],
+  },
+  {
+    title: 'I want to design without learning Figma',
+    icon: '🎨',
+    tools: [
+      { name: 'Framer', price: 'Free + $15/mo', why: 'AI website builder' },
+      { name: 'Webflow', price: '$18/mo', why: 'AI design assistant' },
+      { name: 'Figma', price: 'Free + $15/mo', why: 'Industry standard, AI features' },
+    ],
+  },
+  {
+    title: 'I want to ship faster',
+    icon: '🚀',
+    tools: [
+      { name: 'Vercel', price: 'Free + $20/mo', why: 'Deploy Next.js in 30 seconds' },
+      { name: 'Linear', price: 'Free + $8/mo', why: 'Fastest project tracker' },
+      { name: 'Raycast', price: 'Free + $8/mo', why: 'AI in your command bar' },
+    ],
+  },
+  {
+    title: 'I want to manage my email',
+    icon: '📧',
+    tools: [
+      { name: 'Superhuman', price: '$30/mo', why: 'AI email triage' },
+      { name: 'Notion', price: 'Free + $10/mo', why: 'AI in your second brain' },
+      { name: 'Reflect', price: '$10/mo', why: 'AI note-taking' },
+    ],
+  },
+];
+---
+
+<BaseLayout
+  title="AI tools by use case"
+  description="Find the right AI tool for what you're trying to do. Tested, recommended."
+>
+  <article class="container-x py-10">
+    <header>
+      <p class="text-2xs uppercase tracking-wider text-accent">Browse by goal</p>
+      <h1 class="mt-1 text-4xl font-extrabold text-white">AI tools by use case</h1>
+      <p class="mt-3 max-w-2xl text-lg text-ink-300">
+        Don't know where to start? Pick what you're trying to do.
+      </p>
+    </header>
+
+    <div class="mt-10 space-y-6">
+      {use_cases.map(uc => (
+        <section class="card p-6">
+          <h2 class="flex items-center gap-3 text-xl font-bold text-white">
+            <span class="text-3xl">{uc.icon}</span>
+            {uc.title}
+          </h2>
+          <div class="mt-4 grid gap-3 sm:grid-cols-3">
+            {uc.tools.map(t => (
+              <a
+                href={`https://${t.name.toLowerCase().replace(/[^a-z0-9]/g, '')}.com/?via=uzinetwork`}
+                target="_blank"
+                rel="sponsored noopener noreferrer"
+                class="rounded-lg border border-ink-800 p-4 transition hover:border-accent/40"
+              >
+                <p class="font-bold text-white">{t.name}</p>
+                <p class="mt-1 text-2xs text-ink-400">{t.why}</p>
+                <p class="mt-2 text-sm text-accent">{t.price}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </article>
+</BaseLayout>

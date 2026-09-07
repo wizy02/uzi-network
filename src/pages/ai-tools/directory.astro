@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandLogo from '../components/BrandLogo.astro';
+
+const all_tools = [
+  { name: 'ElevenLabs', category: 'AI Voice', price: '$5/mo', desc: 'AI voice generation, 29 languages', affiliate: 'https://elevenlabs.io/?via=uzinetwork' },
+  { name: 'Make.com', category: 'Automation', price: '$9/mo', desc: 'No-code automation, 1000+ apps', affiliate: 'https://make.com/en/?via=uzinetwork' },
+  { name: 'Jasper AI', category: 'AI Writing', price: '$49/mo', desc: 'Brand voice training, 90+ templates', affiliate: 'https://jasper.ai/?via=uzinetwork' },
+  { name: 'Surfer SEO', category: 'AI SEO', price: '$89/mo', desc: 'AI content optimization', affiliate: 'https://surferseo.com/?via=uzinetwork' },
+  { name: 'Copy.ai', category: 'AI Writing', price: 'Free + $49', desc: 'Marketing copy, 90+ templates', affiliate: 'https://copy.ai/?via=uzinetwork' },
+  { name: 'Pictory', category: 'AI Video', price: '$19/mo', desc: 'Text-to-video AI', affiliate: 'https://pictory.ai/?via=uzinetwork' },
+  { name: 'Writesonic', category: 'AI Writing', price: '$30 lifetime', desc: 'Jasper alternative, cheaper', affiliate: 'https://writesonic.com/?via=uzinetwork' },
+  { name: 'Notion AI', category: 'Productivity', price: '$10/mo', desc: 'AI inside Notion', affiliate: 'https://notion.so/?via=uzinetwork' },
+  { name: 'Descript', category: 'AI Video', price: '$24/mo', desc: 'Edit video by editing text', affiliate: 'https://descript.com/?via=uzinetwork' },
+  { name: 'Perplexity Pro', category: 'AI Search', price: '$20/mo', desc: 'Cited AI search', affiliate: 'https://perplexity.ai/?via=uzinetwork' },
+  { name: 'Claude Pro', category: 'AI Reasoning', price: '$20/mo', desc: 'Best LLM, 200K context', affiliate: 'https://anthropic.com/?via=uzinetwork' },
+  { name: 'Cursor', category: 'AI Coding', price: '$20/mo', desc: 'VS Code with AI', affiliate: 'https://cursor.sh/?via=uzinetwork' },
+  { name: 'Raycast', category: 'Productivity', price: 'Free + $8/mo', desc: 'AI command bar', affiliate: 'https://raycast.com/?via=uzinetwork' },
+  { name: 'Superhuman', category: 'Email', price: '$30/mo', desc: 'AI email triage', affiliate: 'https://superhuman.com/?via=uzinetwork' },
+  { name: 'Loom', category: 'AI Video', price: 'Free + $15/mo', desc: 'AI video summaries', affiliate: 'https://loom.com/?via=uzinetwork' },
+  { name: 'Figma', category: 'Design', price: 'Free + $15/mo', desc: 'AI design tools', affiliate: 'https://figma.com/?via=uzinetwork' },
+  { name: 'Linear', category: 'Productivity', price: 'Free + $8/mo', desc: 'Project tracking', affiliate: 'https://linear.app/?via=uzinetwork' },
+  { name: 'Vercel', category: 'Deployment', price: 'Free + $20/mo', desc: 'Deploy Next.js', affiliate: 'https://vercel.com/?via=uzinetwork' },
+  { name: 'Webflow', category: 'Design', price: '$18/mo', desc: 'AI website builder', affiliate: 'https://webflow.com/?via=uzinetwork' },
+  { name: 'Zapier', category: 'Automation', price: '$20/mo', desc: 'Easier than Make.com', affiliate: 'https://zapier.com/?via=uzinetwork' },
+  { name: 'Calendly', category: 'Productivity', price: 'Free + $8/mo', desc: 'AI scheduling', affiliate: 'https://calendly.com/?via=uzinetwork' },
+  { name: 'Retool', category: 'Dev Tools', price: 'Free + $10/mo', desc: 'Internal tools builder', affiliate: 'https://retool.com/?via=uzinetwork' },
+  { name: 'Bubble', category: 'No-Code', price: 'Free + $25/mo', desc: 'No-code apps', affiliate: 'https://bubble.io/?via=uzinetwork' },
+  { name: 'Framer', category: 'Design', price: 'Free + $15/mo', desc: 'AI websites', affiliate: 'https://framer.com/?via=uzinetwork' },
+  { name: 'Mem', category: 'Productivity', price: '$9/mo', desc: 'AI search notes', affiliate: 'https://mem.ai/?via=uzinetwork' },
+  { name: 'Airtable', category: 'Productivity', price: 'Free + $20/mo', desc: 'AI database', affiliate: 'https://airtable.com/?via=uzinetwork' },
+  { name: 'Warp', category: 'Dev Tools', price: 'Free', desc: 'AI terminal', affiliate: 'https://warp.dev/?via=uzinetwork' },
+  { name: 'Arc', category: 'Browser', price: 'Free', desc: 'AI browser', affiliate: 'https://arc.net/?via=uzinetwork' },
+  { name: 'Tana', category: 'Productivity', price: 'Free beta', desc: 'AI outliner', affiliate: 'https://tana.inc/?via=uzinetwork' },
+  { name: 'Reflect', category: 'Productivity', price: '$10/mo', desc: 'AI notes', affiliate: 'https://reflect.app/?via=uzinetwork' },
+];
+---
+
+<BaseLayout
+  title="AI Tool Directory — All 30 Tools We Use"
+  description="Every AI tool we use, with affiliate links and pricing. Honest."
+>
+  <article class="container-x py-10">
+    <header>
+      <p class="text-2xs uppercase tracking-wider text-accent">Directory</p>
+      <h1 class="mt-1 text-4xl font-extrabold text-white">All 30 AI tools we use</h1>
+      <p class="mt-3 max-w-2xl text-lg text-ink-300">
+        Every tool is one we pay for. Most have free tiers to try.
+      </p>
+    </header>
+
+    <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {all_tools.map(t => (
+        <a
+          href={t.affiliate}
+          target="_blank"
+          rel="sponsored noopener noreferrer"
+          class="card flex flex-col p-5 transition hover:border-accent/40"
+        >
+          <div class="flex items-start justify-between">
+            <BrandLogo brand={t.name} size="sm" />
+            <p class="text-sm font-bold text-accent">{t.price}</p>
+          </div>
+          <p class="mt-2 text-2xs uppercase tracking-wider text-ink-400">{t.category}</p>
+          <p class="mt-1 text-sm text-ink-300">{t.desc}</p>
+        </a>
+      ))}
+    </div>
+  </article>
+</BaseLayout>
