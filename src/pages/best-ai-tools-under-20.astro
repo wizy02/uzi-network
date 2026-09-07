@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandLogo from '../components/BrandLogo.astro';
+
+const tools = [
+  { name: 'ElevenLabs', category: 'AI Voice', price: '$5/mo', desc: 'AI voice. Sounds human.', affiliate: 'https://elevenlabs.io/?via=uzinetwork' },
+  { name: 'Make.com', category: 'Automation', price: '$9/mo', desc: 'No-code automation.', affiliate: 'https://make.com/en/?via=uzinetwork' },
+  { name: 'Warp', category: 'Dev Tools', price: 'Free', desc: 'AI terminal.', affiliate: 'https://warp.dev/?via=uzinetwork' },
+  { name: 'Figma', category: 'Design', price: 'Free + $15/mo', desc: 'Design tool with AI.', affiliate: 'https://figma.com/?via=uzinetwork' },
+  { name: 'Notion AI', category: 'Productivity', price: '$10/mo', desc: 'AI in Notion.', affiliate: 'https://notion.so/?via=uzinetwork' },
+  { name: 'Tana', category: 'Productivity', price: 'Free beta', desc: 'AI outliner.', affiliate: 'https://tana.inc/?via=uzinetwork' },
+  { name: 'Raycast', category: 'Productivity', price: 'Free + $8/mo', desc: 'AI command bar.', affiliate: 'https://raycast.com/?via=uzinetwork' },
+  { name: 'Arc', category: 'Browser', price: 'Free', desc: 'AI browser.', affiliate: 'https://arc.net/?via=uzinetwork' },
+  { name: 'Vercel', category: 'Deployment', price: 'Free + $20/mo', desc: 'Deploy Next.js.', affiliate: 'https://vercel.com/?via=uzinetwork' },
+  { name: 'Mem', category: 'Productivity', price: '$9/mo', desc: 'AI search for notes.', affiliate: 'https://mem.ai/?via=uzinetwork' },
+  { name: 'Reflect', category: 'Productivity', price: '$10/mo', desc: 'AI note-taking.', affiliate: 'https://reflect.app/?via=uzinetwork' },
+  { name: 'Linear', category: 'Productivity', price: 'Free + $8/mo', desc: 'Project tracking.', affiliate: 'https://linear.app/?via=uzinetwork' },
+  { name: 'Calendly', category: 'Productivity', price: 'Free + $8/mo', desc: 'AI scheduling.', affiliate: 'https://calendly.com/?via=uzinetwork' },
+  { name: 'Bubble', category: 'No-Code', price: 'Free + $25/mo', desc: 'No-code apps.', affiliate: 'https://bubble.io/?via=uzinetwork' },
+  { name: 'Airtable', category: 'Productivity', price: 'Free + $20/mo', desc: 'AI database.', affiliate: 'https://airtable.com/?via=uzinetwork' },
+];
+---
+
+<BaseLayout
+  title="Best AI tools under $20/month"
+  description="15 AI tools that cost $20 or less per month. Most have free tiers."
+>
+  <article class="container-x py-10">
+    <header>
+      <p class="text-2xs uppercase tracking-wider text-accent">Budget picks</p>
+      <h1 class="mt-1 text-4xl font-extrabold text-white">Best AI tools under $20/mo</h1>
+      <p class="mt-3 max-w-2xl text-lg text-ink-300">
+        15 AI tools that cost $20 or less per month. Most have free tiers. We pay for all of them.
+      </p>
+    </header>
+
+    <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+      {tools.map(t => (
+        <a
+          href={t.affiliate}
+          target="_blank"
+          rel="sponsored noopener noreferrer"
+          class="card flex flex-col p-5 transition hover:border-accent/40"
+        >
+          <div class="flex items-start justify-between">
+            <BrandLogo brand={t.name} size="sm" />
+            <p class="text-sm font-bold text-accent">{t.price}</p>
+          </div>
+          <p class="mt-2 text-2xs uppercase tracking-wider text-ink-400">{t.category}</p>
+          <p class="mt-1 text-sm text-ink-300">{t.desc}</p>
+        </a>
+      ))}
+    </div>
+  </article>
+</BaseLayout>

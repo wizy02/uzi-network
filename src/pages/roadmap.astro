@@ -1,0 +1,107 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandLogo from '../components/BrandLogo.astro';
+
+const upcoming = [
+  { tool: 'Tana', status: 'in-progress', verdict: 'Promising AI outliner. Needs more time.' },
+  { tool: 'Replit', status: 'queued', verdict: 'No-code app builder with AI.' },
+  { tool: 'V0 by Vercel', status: 'queued', verdict: 'AI React component generator.' },
+  { tool: 'Bolt.new', status: 'queued', verdict: 'AI full-stack app builder.' },
+  { tool: 'Cursor Composer', status: 'in-progress', verdict: 'Multi-file AI editing.' },
+  { tool: 'Notion AI Q&A', status: 'queued', verdict: 'AI search across your Notion workspace.' },
+  { tool: 'Granola', status: 'queued', verdict: 'AI meeting notes.' },
+  { tool: 'Fathom', status: 'queued', verdict: 'AI call recorder + summary.' },
+];
+
+const killing = [
+  { tool: 'Notion AI (alone)', reason: 'Better inside Make.com or Claude.' },
+  { tool: 'ChatGPT Plus', reason: 'Claude does 3x more for us.' },
+  { tool: 'Grammarly', reason: 'Claude catches what Grammarly misses.' },
+  { tool: 'Loom', reason: 'Descript replaced it.' },
+  { tool: 'Mailchimp', reason: 'ConvertKit does more for less.' },
+];
+---
+
+<BaseLayout
+  title="Uzi Network Roadmap — What we're testing next"
+  description="Public roadmap of AI tools we're reviewing. The ones we're using, the ones we're killing."
+>
+  <article class="container-x py-10">
+    <header>
+      <p class="text-2xs uppercase tracking-wider text-accent">Public roadmap</p>
+      <h1 class="mt-1 text-4xl font-extrabold text-white">What we're testing</h1>
+      <p class="mt-3 max-w-2xl text-lg text-ink-300">
+        Tools we're using now. Tools in the queue. Tools we killed.
+      </p>
+    </header>
+
+    <!-- In progress -->
+    <section class="mt-10">
+      <h2 class="flex items-center gap-2 text-2xl font-bold text-white">
+        <span class="h-3 w-3 rounded-full bg-green-400"></span>
+        Currently testing
+      </h2>
+      <div class="mt-4 space-y-3">
+        {upcoming.filter(t => t.status === 'in-progress').map(t => (
+          <div class="card flex items-center justify-between p-4">
+            <div>
+              <BrandLogo brand={t.tool} size="sm" />
+              <p class="mt-1 text-sm text-ink-300">{t.verdict}</p>
+            </div>
+            <span class="chip bg-green-500/20 text-green-400">in progress</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Queued -->
+    <section class="mt-10">
+      <h2 class="flex items-center gap-2 text-2xl font-bold text-white">
+        <span class="h-3 w-3 rounded-full bg-yellow-400"></span>
+        Queued for review
+      </h2>
+      <div class="mt-4 space-y-3">
+        {upcoming.filter(t => t.status === 'queued').map(t => (
+          <div class="card flex items-center justify-between p-4">
+            <div>
+              <BrandLogo brand={t.tool} size="sm" />
+              <p class="mt-1 text-sm text-ink-300">{t.verdict}</p>
+            </div>
+            <span class="chip bg-yellow-500/20 text-yellow-400">queued</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Killed -->
+    <section class="mt-10">
+      <h2 class="flex items-center gap-2 text-2xl font-bold text-red-400">
+        <span class="h-3 w-3 rounded-full bg-red-400"></span>
+        Tools we killed
+      </h2>
+      <p class="mt-2 text-sm text-ink-300">These didn't earn their subscription. We cancelled.</p>
+      <div class="mt-4 space-y-3">
+        {killing.map(t => (
+          <div class="card flex items-center justify-between p-4">
+            <div>
+              <p class="font-bold text-white">{t.tool}</p>
+              <p class="mt-1 text-sm text-ink-300">{t.reason}</p>
+            </div>
+            <span class="chip bg-red-500/20 text-red-400">cancelled</span>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Suggest a tool -->
+    <section class="mt-12 rounded-2xl border-2 border-accent/40 bg-gradient-to-br from-accent/10 to-accent/5 p-8 text-center">
+      <h2 class="text-2xl font-bold text-white">Suggest a tool</h2>
+      <p class="mx-auto mt-2 max-w-md text-ink-300">
+        Got a tool we should test? Email us and we'll add it to the queue.
+      </p>
+      <a href="mailto:hello@uzinetwork.store?subject=Tool%20suggestion" class="btn-primary mt-5 inline-block px-6 py-3 font-bold">
+        Suggest a tool
+      </a>
+    </section>
+  </article>
+</BaseLayout>

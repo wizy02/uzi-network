@@ -1,0 +1,55 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandLogo from '../components/BrandLogo.astro';
+
+const prices = [
+  { limit: 10, count: 4, intro: 'Truly free. Use them today without a credit card.' },
+  { limit: 25, count: 8, intro: 'Cheap enough to try in a weekend. Most have free tiers.' },
+  { limit: 50, count: 12, intro: 'The sweet spot for tools that pay for themselves in a week.' },
+  { limit: 100, count: 6, intro: 'Premium AI at less than a Netflix subscription.' },
+  { limit: 500, count: 3, intro: 'For teams. Worth it if 3+ people use it daily.' },
+];
+---
+
+<BaseLayout
+  title="AI tools by price"
+  description="Best AI tools under $10, $25, $50, $100. Every price tier."
+>
+  <article class="container-x py-10">
+    <header>
+      <p class="text-2xs uppercase tracking-wider text-accent">Browse by price</p>
+      <h1 class="mt-1 text-4xl font-extrabold text-white">AI tools by price</h1>
+      <p class="mt-3 max-w-2xl text-lg text-ink-300">
+        Every tool we use, organized by what it costs.
+      </p>
+    </header>
+
+    {prices.map(p => (
+      <section class="mt-10">
+        <h2 class="text-2xl font-bold text-white">Under ${p.limit}/mo</h2>
+        <p class="mt-1 text-sm text-ink-300">{p.intro}</p>
+        <div class="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+          {/* placeholder cards — replace with real filtering later */}
+          {Array.from({length: 3}).map((_, i) => (
+            <a
+              href={`https://example.com/?via=uzinetwork`}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              class="card p-5 transition hover:border-accent/40"
+            >
+              <div class="flex items-start justify-between">
+                <BrandLogo brand="ElevenLabs" size="sm" />
+                <p class="text-sm font-bold text-accent">$5/mo</p>
+              </div>
+              <p class="mt-2 text-2xs uppercase tracking-wider text-ink-400">AI Voice</p>
+              <p class="mt-1 text-sm text-ink-300">AI voice generation. Sounds human. 29 languages.</p>
+            </a>
+          ))}
+        </div>
+        <a href="/ai-tools/directory" class="mt-3 inline-block text-sm text-brand-300 hover:text-brand-200">
+          See all {p.count} under ${p.limit} →
+        </a>
+      </section>
+    ))}
+  </article>
+</BaseLayout>
