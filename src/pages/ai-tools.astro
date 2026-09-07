@@ -1,0 +1,129 @@
+---
+// AI tool review card — simpler structure than the main review schema
+// Lives outside the review collection so it doesn't need to match the strict schema
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BrandLogo from '../components/BrandLogo.astro';
+
+const tools = [
+  {
+    name: 'ElevenLabs',
+    tagline: 'AI voice that sounds human',
+    price: '$5/mo',
+    rating: 4.5,
+    affiliate: 'https://elevenlabs.io?via=uzinetwork',
+    pros: ['Natural-sounding voices', '29 languages', 'Voice cloning'],
+    description: 'ElevenLabs is the AI voice tool we use for every video voiceover. The free tier covers most use cases. $5/month starter plan is enough for solo creators.',
+    category: 'AI Voice',
+  },
+  {
+    name: 'Make.com',
+    tagline: 'No-code automation',
+    price: '$9/mo',
+    rating: 4.5,
+    affiliate: 'https://make.com/en?via=uzinetwork',
+    pros: ['Connects 1,000+ apps', 'Visual workflow builder', 'Free plan available'],
+    description: 'Make.com saved us 10 hours per week. We automated social posting, email follow-ups, and content syndication. $9/month is nothing for the time saved.',
+    category: 'Automation',
+  },
+  {
+    name: 'Jasper AI',
+    tagline: 'Marketing copy that converts',
+    price: '$49/mo',
+    rating: 4.5,
+    affiliate: 'https://jasper.ai?via=uzinetwork',
+    pros: ['90+ templates', 'Brand voice training', 'Multi-language support'],
+    description: 'Jasper is the AI writing tool for marketers. Templates for emails, social posts, ad copy. 30% recurring commission for affiliates.',
+    category: 'AI Writing',
+  },
+  {
+    name: 'Surfer SEO',
+    tagline: 'Rank for product keywords',
+    price: '$89/mo',
+    rating: 4.5,
+    affiliate: 'https://surferseo.com?via=uzinetwork',
+    pros: ['AI content optimization', 'Real-time SERP analysis', 'Keyword research built-in'],
+    description: 'Surfer SEO ranks our review pages in 14 days. It analyzes top-ranking pages and tells you exactly what to write. 25% recurring.',
+    category: 'AI SEO',
+  },
+  {
+    name: 'Copy.ai',
+    tagline: 'Marketing copy at scale',
+    price: '$49/mo',
+    rating: 4.0,
+    affiliate: 'https://copy.ai?via=uzinetwork',
+    pros: ['Free tier available', 'Workflow automation', '90+ templates'],
+    description: 'Copy.ai is the free-friendly option. Free tier covers most use cases. Pro adds workflow automation. 45% first year commission.',
+    category: 'AI Writing',
+  },
+  {
+    name: 'Pictory',
+    tagline: 'Text-to-video AI',
+    price: '$19/mo',
+    rating: 4.0,
+    affiliate: 'https://pictory.ai?via=uzinetwork',
+    pros: ['Turns blog posts into videos', 'Auto-captions', 'Stock footage library'],
+    description: 'Pictory turns written reviews into YouTube Shorts in 10 minutes each. We use it to repurpose content. $19/month.',
+    category: 'AI Video',
+  },
+];
+---
+
+<BaseLayout
+  title="Best AI Tools 2026"
+  description="6 AI tools we tested. All pay for themselves. Affiliate links."
+>
+  <article class="container-x py-10">
+    <header class="text-center">
+      <p class="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Affiliate picks</p>
+      <h1 class="mt-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+        Best AI tools 2026
+      </h1>
+      <p class="mx-auto mt-4 max-w-2xl text-lg text-ink-300">
+        We tested 15+ AI tools. These 6 are the ones we keep using. Every link is affiliate — we earn a commission at no extra cost to you.
+      </p>
+    </header>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {tools.map(tool => (
+        <div class="card flex flex-col p-5">
+          <div class="mb-3">
+            <BrandLogo brand={tool.name} size="md" />
+          </div>
+          <p class="text-2xs uppercase tracking-wider text-accent">{tool.category}</p>
+          <h2 class="mt-1 text-xl font-bold text-white">{tool.tagline}</h2>
+          <p class="mt-2 text-sm text-ink-300">{tool.description}</p>
+
+          <ul class="mt-4 space-y-1 text-sm text-ink-200">
+            {tool.pros.map(pro => (
+              <li class="flex gap-2"><span class="text-green-400">+</span><span>{pro}</span></li>
+            ))}
+          </ul>
+
+          <div class="mt-5 flex items-end justify-between border-t border-ink-800 pt-4">
+            <div>
+              <p class="text-2xs uppercase tracking-wider text-ink-400">{tool.name}</p>
+              <p class="text-lg font-bold text-white">{tool.price}</p>
+            </div>
+            <a
+              href={tool.affiliate}
+              target="_blank"
+              rel="sponsored noopener noreferrer"
+              class="btn-primary px-4 py-2 text-sm font-bold"
+              data-affiliate={tool.name.toLowerCase()}
+            >
+              Try {tool.name} →
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 rounded-2xl border border-ink-800 bg-ink-900/40 p-6 text-sm text-ink-300">
+      <p class="font-semibold text-white">Affiliate disclosure</p>
+      <p class="mt-2">
+        Every link on this page is an affiliate link. We earn a commission when you sign up — it never changes your price.
+        We pay for every subscription with our own money and only recommend tools we actually use.
+      </p>
+    </div>
+  </article>
+</BaseLayout>
