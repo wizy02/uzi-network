@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="How we make money with AI tool reviews"
+  description="Honest breakdown of our affiliate revenue, ad revenue, and product economics."
+  noIndex
+>
+  <article class="container-x py-10">
+    <header>
+      <p class="text-2xs uppercase tracking-wider text-accent">Transparency</p>
+      <h1 class="mt-1 text-4xl font-extrabold text-white">How we make money</h1>
+      <p class="mt-3 max-w-2xl text-lg text-ink-300">
+        Full breakdown of every revenue stream. Updated monthly.
+      </p>
+    </header>
+
+    <!-- Affiliate revenue -->
+    <section class="mt-10 card p-6">
+      <h2 class="text-2xl font-bold text-white">Affiliate revenue</h2>
+      <p class="mt-2 text-sm text-ink-300">
+        Every AI tool we recommend has an affiliate program. We earn 20-45% recurring commission on most.
+      </p>
+      <div class="mt-6 overflow-x-auto">
+        <table class="w-full text-sm">
+          <thead class="text-2xs uppercase tracking-wider text-ink-400">
+            <tr class="border-b border-ink-800">
+              <th class="py-2 text-left">Tool</th>
+              <th class="py-2 text-right">Commission</th>
+              <th class="py-2 text-right">Avg sale</th>
+              <th class="py-2 text-right">Our cut</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-ink-800">
+              <td class="py-3 font-medium text-white">Claude Pro</td>
+              <td class="py-3 text-right">Direct program</td>
+              <td class="py-3 text-right">$20/mo</td>
+              <td class="py-3 text-right text-accent">$4-12/mo</td>
+            </tr>
+            <tr class="border-b border-ink-800">
+              <td class="py-3 font-medium text-white">Jasper AI</td>
+              <td class="py-3 text-right">30% recurring</td>
+              <td class="py-3 text-right">$49/mo</td>
+              <td class="py-3 text-right text-accent">$14.70/mo</td>
+            </tr>
+            <tr class="border-b border-ink-800">
+              <td class="py-3 font-medium text-white">Make.com</td>
+              <td class="py-3 text-right">20% recurring</td>
+              <td class="py-3 text-right">$9-29/mo</td>
+              <td class="py-3 text-right text-accent">$1.80-5.80/mo</td>
+            </tr>
+            <tr class="border-b border-ink-800">
+              <td class="py-3 font-medium text-white">Surfer SEO</td>
+              <td class="py-3 text-right">25% recurring</td>
+              <td class="py-3 text-right">$89/mo</td>
+              <td class="py-3 text-right text-accent">$22.25/mo</td>
+            </tr>
+            <tr class="border-b border-ink-800">
+              <td class="py-3 font-medium text-white">Copy.ai</td>
+              <td class="py-3 text-right">45% first year</td>
+              <td class="py-3 text-right">$49/mo</td>
+              <td class="py-3 text-right text-accent">$22.05/mo (12mo)</td>
+            </tr>
+            <tr class="border-b border-ink-800">
+              <td class="py-3 font-medium text-white">Pictory</td>
+              <td class="py-3 text-right">20% recurring</td>
+              <td class="py-3 text-right">$19/mo</td>
+              <td class="py-3 text-right text-accent">$3.80/mo</td>
+            </tr>
+            <tr class="border-b border-ink-800">
+              <td class="py-3 font-medium text-white">ElevenLabs</td>
+              <td class="py-3 text-right">Direct program</td>
+              <td class="py-3 text-right">$5-22/mo</td>
+              <td class="py-3 text-right text-accent">$1-5/mo</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="mt-4 text-2xs text-ink-500">
+        Lifetime value of one referred customer: $50-500 depending on retention.
+      </p>
+    </section>
+
+    <!-- Subscription revenue -->
+    <section class="mt-8 card p-6">
+      <h2 class="text-2xl font-bold text-white">Pro subscription</h2>
+      <p class="mt-2 text-sm text-ink-300">
+        $9/month for exclusive discount codes. Cost to us: ~$0 (Lemon Squeezy handles billing).
+      </p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-3">
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">10 subs</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$90/mo</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">100 subs</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$900/mo</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center border-2 border-accent/40">
+          <p class="text-2xs uppercase tracking-wider text-accent">500 subs</p>
+          <p class="mt-1 text-2xl font-extrabold text-accent">$4,500/mo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sponsored slots -->
+    <section class="mt-8 card p-6">
+      <h2 class="text-2xl font-bold text-white">Sponsored slots</h2>
+      <p class="mt-2 text-sm text-ink-300">
+        We sell 1-2 dedicated newsletter slots per week. $200-500 per slot.
+      </p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-3">
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">1 slot/wk</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$800-2K/mo</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">2 slots/wk</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$1.6K-4K/mo</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center border-2 border-accent/40">
+          <p class="text-2xs uppercase tracking-wider text-accent">4 slots/wk</p>
+          <p class="mt-1 text-2xl font-extrabold text-accent">$3.2K-8K/mo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Display ads -->
+    <section class="mt-8 card p-6">
+      <h2 class="text-2xl font-bold text-white">Display ads</h2>
+      <p class="mt-2 text-sm text-ink-300">
+        MoneyTag is live now. AdSense/Mediavine when we hit traffic thresholds.
+      </p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-3">
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">10K visits/mo</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$50-100/mo</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">50K visits/mo</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$250-500/mo</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center border-2 border-accent/40">
+          <p class="text-2xs uppercase tracking-wider text-accent">500K visits/mo</p>
+          <p class="mt-1 text-2xl font-extrabold text-accent">$2.5K-5K/mo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hermes API -->
+    <section class="mt-8 card p-6">
+      <h2 class="text-2xl font-bold text-white">Hermes Agent API (new)</h2>
+      <p class="mt-2 text-sm text-ink-300">
+        We expose Hermes Agent as a paid API. Free tier (50 req/day) → Pro tier ($5/mo).
+      </p>
+      <div class="mt-4 grid gap-3 sm:grid-cols-3">
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">10 users</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$0-50/mo</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">100 users</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$200-500/mo</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center border-2 border-accent/40">
+          <p class="text-2xs uppercase tracking-wider text-accent">1000 users</p>
+          <p class="mt-1 text-2xl font-extrabold text-accent">$2K-5K/mo</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Combined -->
+    <section class="mt-10 rounded-2xl border-2 border-accent/40 bg-gradient-to-br from-accent/10 to-accent/5 p-8">
+      <h2 class="text-2xl font-bold text-white">Realistic 90-day projection</h2>
+      <p class="mt-2 text-sm text-ink-300">
+        Assuming consistent posting + sponsor outreach + organic growth
+      </p>
+      <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">Month 1</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$50-200</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">Month 2</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$300-1K</p>
+        </div>
+        <div class="rounded-lg bg-ink-900/50 p-4 text-center">
+          <p class="text-2xs uppercase tracking-wider text-ink-400">Month 3</p>
+          <p class="mt-1 text-2xl font-extrabold text-white">$1K-3K</p>
+        </div>
+        <div class="rounded-lg bg-accent/20 p-4 text-center border border-accent/40">
+          <p class="text-2xs uppercase tracking-wider text-accent">Month 6</p>
+          <p class="mt-1 text-2xl font-extrabold text-accent">$3K-10K</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disclosure -->
+    <section class="mt-10 card p-6">
+      <h2 class="text-xl font-bold text-white">The fine print</h2>
+      <ul class="mt-4 space-y-2 text-sm text-ink-300">
+        <li>• We pay for every subscription we recommend. No free products = no conflict of interest.</li>
+        <li>• Affiliate links never change our verdicts. We say what we actually think.</li>
+        <li>• Brands don't see reviews before they go live. We don't do sponsored reviews.</li>
+        <li>• Sponsored newsletter slots are clearly marked as "sponsored" at the top.</li>
+        <li>• We may earn a commission when you sign up for tools we recommend. The price you pay doesn't change.</li>
+      </ul>
+    </section>
+  </article>
+</BaseLayout>
