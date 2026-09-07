@@ -1,0 +1,17 @@
+# Cloudflare Tunnel config for exposing local services publicly
+# Deploy with: cloudflared tunnel create uzi-api && cloudflared tunnel route dns uzi-api api.uzinetwork.store
+# Then: cloudflared tunnel run uzi-api
+
+tunnel: uzi-api
+credentials-file: /home/ubuntu/.cloudflared/uzi-api.json
+
+# Route public hostname → local service
+ingress:
+  # Hermes Agent API
+  - hostname: api.uzinetwork.store
+    service: http://127.0.0.1:8765
+    originRequest:
+      httpHostHeader: api.uzinetwork.store
+
+  # Catch-all (404)
+  - service: http_status:404

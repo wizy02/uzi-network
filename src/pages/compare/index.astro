@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BrandLogo from '../../components/BrandLogo.astro';
+
+const comparisons = [
+  {
+    slug: 'jasper-vs-copy-ai',
+    title: 'Jasper vs Copy.ai: Which AI writer is worth paying for?',
+    a: 'Jasper', b: 'Copy.ai', winner: 'Jasper',
+    summary: 'Jasper wins for teams with brand voice training. Copy.ai wins for solo creators on a budget.',
+  },
+  {
+    slug: 'elevenlabs-vs-descript',
+    title: 'ElevenLabs vs Descript: Best AI tool for video creators?',
+    a: 'ElevenLabs', b: 'Descript', winner: 'ElevenLabs',
+    summary: 'ElevenLabs for voiceover, Descript for editing. Different jobs.',
+  },
+  {
+    slug: 'make-vs-zapier',
+    title: 'Make.com vs Zapier: Which automation tool is better in 2026?',
+    a: 'Make.com', b: 'Zapier', winner: 'Make.com',
+    summary: 'Make.com is cheaper, more powerful, but steeper learning curve.',
+  },
+  {
+    slug: 'surfer-vs-ahrefs',
+    title: 'Surfer SEO vs Ahrefs: Which is better for AI-era SEO?',
+    a: 'Surfer SEO', b: 'Ahrefs', winner: 'Surfer',
+    summary: 'Surfer is built for AI content. Ahrefs is built for backlink analysis.',
+  },
+  {
+    slug: 'claude-pro-vs-chatgpt-plus',
+    title: 'Claude Pro vs ChatGPT Plus: Honest comparison after 6 months',
+    a: 'Claude Pro', b: 'ChatGPT Plus', winner: 'Claude Pro',
+    summary: 'Claude wins for coding, writing, analysis. ChatGPT wins for image gen and voice.',
+  },
+];
+---
+
+<BaseLayout
+  title="AI Tool Comparisons"
+  description="Side-by-side comparisons of the AI tools we use. Honest verdicts, no fluff."
+>
+  <article class="container-x py-10">
+    <header>
+      <p class="text-2xs uppercase tracking-wider text-accent">Comparisons</p>
+      <h1 class="mt-1 text-4xl font-extrabold text-white sm:text-5xl">AI tool comparisons</h1>
+      <p class="mt-3 max-w-2xl text-lg text-ink-300">
+        Side-by-side. Honest verdicts. We've used both for 6+ months.
+      </p>
+    </header>
+
+    <div class="mt-10 grid gap-6 sm:grid-cols-2">
+      {comparisons.map(c => (
+        <a href={`/compare/${c.slug}`} class="card flex flex-col p-6 transition hover:border-accent/40 hover:shadow-2xl">
+          <div class="flex items-center gap-3">
+            <BrandLogo brand={c.a} size="sm" />
+            <span class="text-ink-500">vs</span>
+            <BrandLogo brand={c.b} size="sm" />
+          </div>
+          <h2 class="mt-4 text-lg font-bold text-white">{c.title}</h2>
+          <p class="mt-2 flex-1 text-sm text-ink-300">{c.summary}</p>
+          <div class="mt-4 flex items-center justify-between">
+            <span class="chip bg-accent/20 text-accent">Winner: {c.winner}</span>
+            <span class="text-sm text-brand-300">Read →</span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </article>
+</BaseLayout>
