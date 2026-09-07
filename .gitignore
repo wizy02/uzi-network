@@ -32,4 +32,4 @@ Thumbs.db
 .dev.vars
 
 # Generated
-public/favicon.*.gz
+public/favicon.*.gz.venv/
