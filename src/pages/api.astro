@@ -1,0 +1,163 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Hermes Agent API — OpenAI-compatible AI with tools"
+  description="Access Hermes Agent via a standard OpenAI-compatible API. Free tier. Real tools, not just chat."
+>
+  <article class="container-x py-12 sm:py-16">
+    <div class="mx-auto max-w-4xl">
+      <!-- Hero -->
+      <header class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Hermes Agent API</p>
+        <h1 class="mt-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          AI with real tools. OpenAI-compatible API.
+        </h1>
+        <p class="mx-auto mt-4 max-w-2xl text-lg text-ink-300">
+          Point any OpenAI client at our endpoint. Hermes can use terminal, browse the web, read files, and run code. Not just chat.
+        </p>
+      </header>
+
+      <!-- Code example -->
+      <div class="mt-10 card overflow-hidden p-0">
+        <div class="bg-ink-800 p-3 text-2xs uppercase tracking-wider text-ink-400">curl</div>
+        <pre class="overflow-x-auto p-5 text-sm"><code>{`curl https://api.uzinetwork.store/v1/chat/completions \\
+  -H "Authorization: Bearer YOUR_KEY" \\
+  -H "Content-Type: application/json" \\
+  -d '{
+    "model": "hermes-agent",
+    "messages": [{"role": "user", "content": "Find the cheapest RTX 4090 on Amazon and write a Python script to alert me when the price drops below $1500"}]
+  }'`}</code></pre>
+      </div>
+
+      <!-- Pricing -->
+      <section class="mt-12 grid gap-4 sm:grid-cols-2">
+        <div class="card p-6">
+          <p class="text-2xs uppercase tracking-wider text-accent">Free</p>
+          <p class="mt-2 text-3xl font-extrabold text-white">$0</p>
+          <ul class="mt-4 space-y-2 text-sm text-ink-200">
+            <li>✓ 50 requests/day</li>
+            <li>✓ All tools (terminal, browser, files)</li>
+            <li>✓ OpenAI-compatible</li>
+            <li>✓ Email support</li>
+          </ul>
+          <a href="#signup" class="btn-primary mt-6 block w-full py-3 text-center font-bold">
+            Get free API key
+          </a>
+        </div>
+        <div class="card border-2 border-accent/40 p-6">
+          <p class="text-2xs uppercase tracking-wider text-accent">Pro — coming soon</p>
+          <p class="mt-2 text-3xl font-extrabold text-white">$5<span class="text-base text-ink-300">/mo</span></p>
+          <ul class="mt-4 space-y-2 text-sm text-ink-200">
+            <li>✓ Unlimited requests</li>
+            <li>✓ Priority queue</li>
+            <li>✓ Faster models</li>
+            <li>✓ Discord support</li>
+          </ul>
+          <a href="mailto:hello@uzinetwork.store?subject=Pro%20API%20waitlist" class="btn-primary mt-6 block w-full py-3 text-center font-bold">
+            Join waitlist
+          </a>
+        </div>
+      </section>
+
+      <!-- Signup -->
+      <section id="signup" class="mt-12 rounded-2xl border-2 border-accent/40 bg-gradient-to-br from-accent/10 to-accent/5 p-8 text-center">
+        <h2 class="text-2xl font-bold text-white">Get your free API key</h2>
+        <p class="mt-2 text-ink-300">Just your email. 50 requests/day. No credit card.</p>
+        <form id="api-signup-form" class="mx-auto mt-6 flex max-w-md flex-col gap-2 sm:flex-row">
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@domain.com"
+            class="flex-1 rounded-lg bg-ink-800 px-4 py-3 text-sm text-white placeholder-ink-500 ring-1 ring-ink-700 focus:ring-accent"
+          />
+          <button type="submit" class="btn-primary px-5 py-3 font-bold">
+            Get API key
+          </button>
+        </form>
+        <p id="api-signup-msg" class="mt-3 min-h-[1.25rem] text-sm text-ink-300" aria-live="polite"></p>
+      </section>
+
+      <!-- What makes it different -->
+      <section class="mt-12">
+        <h2 class="text-2xl font-bold text-white">Why Hermes Agent API?</h2>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div class="card p-5">
+            <h3 class="font-bold text-white">Real tools, not just chat</h3>
+            <p class="mt-1 text-sm text-ink-300">Hermes can browse the web, run code, read files, and call APIs. It does things, not just talks.</p>
+          </div>
+          <div class="card p-5">
+            <h3 class="font-bold text-white">OpenAI-compatible</h3>
+            <p class="mt-1 text-sm text-ink-300">Works with any client — Open WebUI, LobeChat, LibreChat, NextChat, Cursor, your own scripts.</p>
+          </div>
+          <div class="card p-5">
+            <h3 class="font-bold text-white">Model-agnostic</h3>
+            <p class="mt-1 text-sm text-ink-300">Routes through OpenRouter. Pick from 300+ models. Switch anytime.</p>
+          </div>
+          <div class="card p-5">
+            <h3 class="font-bold text-white">Self-hostable</h3>
+            <p class="mt-1 text-sm text-ink-300">Free and open-source (Nous Research). Run on your own hardware if you want.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Use cases -->
+      <section class="mt-12">
+        <h2 class="text-2xl font-bold text-white">What people build with it</h2>
+        <div class="mt-6 space-y-3">
+          <div class="card p-4">
+            <p class="text-sm text-ink-200">🤖 <b>AI agents</b> — multi-step task automation that calls real tools</p>
+          </div>
+          <div class="card p-4">
+            <p class="text-sm text-ink-200">📊 <b>Data analysis</b> — read CSVs, run Python, generate reports</p>
+          </div>
+          <div class="card p-4">
+            <p class="text-sm text-ink-200">🌐 <b>Web research</b> — browse, summarize, cite sources</p>
+          </div>
+          <div class="card p-4">
+            <p class="text-sm text-ink-200">💻 <b>Code automation</b> — write, test, deploy from natural language</p>
+          </div>
+          <div class="card p-4">
+            <p class="text-sm text-ink-200">📝 <b>Content workflows</b> — research, draft, edit, publish</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<script is:inline>
+  const form = document.getElementById('api-signup-form');
+  const msg = document.getElementById('api-signup-msg');
+  if (form && msg) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = '...';
+      try {
+        const res = await fetch('/api/hermes-signup', {
+          method: 'POST',
+          body: data,
+        });
+        const j = await res.json();
+        if (j.api_key) {
+          msg.innerHTML = `<b class="text-green-400">Your API key:</b><br><code class="text-accent text-base">${j.api_key}</code><br><br><span class="text-ink-300">Save it now — we don't store it. Add to your client: <code>Authorization: Bearer ${j.api_key}</code></span>`;
+          form.style.display = 'none';
+        } else {
+          msg.textContent = j.message ?? j.error ?? 'Something went wrong.';
+          msg.className = 'mt-3 min-h-[1.25rem] text-sm text-red-400';
+        }
+      } catch (err) {
+        msg.textContent = 'Network error. Try again.';
+        msg.className = 'mt-3 min-h-[1.25rem] text-sm text-red-400';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Get API key';
+      }
+    });
+  }
+</script>
