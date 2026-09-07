@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="AI Tools That Pay for Themselves"
+  description="We tested 15 AI tools. 8 are worth paying for. Get the free PDF."
+>
+  <article class="container-x py-12 sm:py-16">
+    <div class="mx-auto max-w-3xl">
+      <!-- Hero -->
+      <header class="text-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Free PDF — no email gate</p>
+        <h1 class="mt-3 text-4xl font-extrabold tracking-tight text-white sm:text-5xl">
+          AI tools that pay for themselves
+        </h1>
+        <p class="mt-4 text-xl text-ink-300">
+          We burned $4,200 on AI subscriptions last year. Most were worthless. These 8 saved us 40+ hours/week and paid for themselves in the first month.
+        </p>
+      </header>
+
+      <!-- Big download card -->
+      <div class="mt-10 card overflow-hidden p-0">
+        <div class="bg-gradient-to-br from-accent/20 to-accent/5 p-8 text-center">
+          <div class="mx-auto flex h-20 w-20 items-center justify-center rounded-2xl bg-accent/20 text-4xl">
+            📘
+          </div>
+          <h2 class="mt-5 text-2xl font-bold text-white">15 tools tested. 8 we kept.</h2>
+          <p class="mt-2 text-ink-300">Free PDF. No signup required. Download in 5 seconds.</p>
+        </div>
+        <div class="p-8">
+          <a
+            href="/downloads/ai-tools-that-pay-for-themselves.pdf"
+            download
+            class="btn-primary flex w-full items-center justify-center gap-2 py-4 text-lg font-bold"
+          >
+            <span>⬇</span>
+            <span>Download the PDF</span>
+          </a>
+          <p class="mt-3 text-center text-2xs text-ink-500">
+            No email required. 8 pages. 2-min read.
+          </p>
+        </div>
+      </div>
+
+      <!-- What's inside -->
+      <section class="mt-12">
+        <h2 class="text-2xl font-bold text-white">What's inside</h2>
+        <div class="mt-6 grid gap-4 sm:grid-cols-2">
+          <div class="card p-5">
+            <p class="text-2xs uppercase tracking-wider text-accent">Writing & reasoning</p>
+            <h3 class="mt-2 font-bold text-white">Claude Pro · Notion AI</h3>
+            <p class="mt-1 text-sm text-ink-300">$20/mo + $10/mo. Long-form, code, summarization.</p>
+          </div>
+          <div class="card p-5">
+            <p class="text-2xs uppercase tracking-wider text-accent">Voice & video</p>
+            <h3 class="mt-2 font-bold text-white">ElevenLabs · Descript · Pictory</h3>
+            <p class="mt-1 text-sm text-ink-300">$5 + $24 + $19/mo. Voiceover, edit, repurpose.</p>
+          </div>
+          <div class="card p-5">
+            <p class="text-2xs uppercase tracking-wider text-accent">Automation</p>
+            <h3 class="mt-2 font-bold text-white">Make.com</h3>
+            <p class="mt-1 text-sm text-ink-300">$9/mo. Connect 1,000+ apps. No code.</p>
+          </div>
+          <div class="card p-5">
+            <p class="text-2xs uppercase tracking-wider text-accent">SEO & copy</p>
+            <h3 class="mt-2 font-bold text-white">Surfer SEO · Copy.ai</h3>
+            <p class="mt-1 text-sm text-ink-300">$89 + $49/mo. Rank for product keywords.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Email opt-in (the real money play) -->
+      <section class="mt-12 rounded-2xl border-2 border-accent/40 bg-gradient-to-br from-accent/10 to-accent/5 p-8 text-center">
+        <p class="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Want more?</p>
+        <h2 class="mt-3 text-2xl font-bold text-white">Get the discount codes</h2>
+        <p class="mt-2 max-w-md mx-auto text-ink-300">
+          We negotiate exclusive discounts for our subscribers. Join the list and we'll send them as we land them — no spam, one email per week.
+        </p>
+        <form
+          id="lead-magnet-form"
+          class="mx-auto mt-6 flex max-w-md flex-col gap-2 sm:flex-row"
+        >
+          <input
+            type="email"
+            name="email"
+            required
+            placeholder="you@domain.com"
+            class="flex-1 rounded-lg bg-ink-800 px-4 py-3 text-sm text-white placeholder-ink-500 ring-1 ring-ink-700 focus:ring-accent"
+          />
+          <button type="submit" class="btn-primary px-5 py-3 font-bold">
+            Get discount codes
+          </button>
+        </form>
+        <p id="lead-magnet-msg" class="mt-3 min-h-[1.25rem] text-sm text-ink-300" aria-live="polite"></p>
+        <p class="mt-2 text-2xs text-ink-500">By subscribing you agree to receive marketing emails. Unsubscribe any time.</p>
+      </section>
+
+      <!-- Trust -->
+      <section class="mt-12">
+        <div class="rounded-xl border border-ink-800 bg-ink-900/40 p-6 text-sm text-ink-300">
+          <p class="font-semibold text-white">Why trust us?</p>
+          <p class="mt-2">
+            We pay for every subscription with our own money. We don't take sponsored placements in the PDF.
+            Some links are affiliate links — we earn a commission at no cost to you, and it never changes our verdicts.
+            We've been testing AI tools daily since 2023.
+          </p>
+        </div>
+      </section>
+    </div>
+  </article>
+</BaseLayout>
+
+<script is:inline>
+  const form = document.getElementById('lead-magnet-form');
+  const msg = document.getElementById('lead-magnet-msg');
+  if (form && msg) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const btn = form.querySelector('button[type=submit]');
+      btn.disabled = true;
+      btn.textContent = '...';
+      try {
+        const res = await fetch('/api/subscribe', {
+          method: 'POST',
+          body: data,
+        });
+        const j = await res.json();
+        msg.textContent = j.message ?? (res.ok ? "You're in. Check your inbox." : 'Something went wrong.');
+        msg.className = `mt-3 min-h-[1.25rem] text-sm ${res.ok ? 'text-green-400' : 'text-red-400'}`;
+        if (res.ok) form.reset();
+      } catch (err) {
+        msg.textContent = 'Network error. Try again.';
+        msg.className = 'mt-3 min-h-[1.25rem] text-sm text-red-400';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = 'Get discount codes';
+      }
+    });
+  }
+</script>

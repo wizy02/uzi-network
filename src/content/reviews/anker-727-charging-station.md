@@ -7,7 +7,7 @@ priceUsd: 80
 rating: 4.5
 releaseDate: "2026-04-15"
 lastUpdated: "2026-09-02"
-cover: "/_images/anker-727-charging-station.jpg"
+cover: "/images/_images/anker-727-charging-station.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

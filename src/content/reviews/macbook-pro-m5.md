@@ -7,7 +7,7 @@ priceUsd: 1999
 rating: 4.6
 releaseDate: 2026-08-10
 lastUpdated: 2026-09-02
-cover: "/_images/macbook-pro-m5.jpg"
+cover: "/images/_images/macbook-pro-m5.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"

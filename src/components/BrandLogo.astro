@@ -1,0 +1,47 @@
+---
+// Brand logo component — text-based logos (no trademark issues).
+// Each brand gets a recognizable, professional text treatment with optional icon.
+
+interface Props {
+  brand: string;
+  size?: 'sm' | 'md' | 'lg' | 'xl';
+  dark?: boolean;
+}
+
+const { brand, size = 'md', dark = true } = Astro.props;
+
+const BRAND_STYLES: Record<string, { icon?: string; color: string; weight?: number; letterSpacing?: string; transform?: string }> = {
+  'Anker': { icon: '⚡', color: '#00A8E1' },
+  'Anthropic': { icon: '✦', color: '#C96442', letterSpacing: '0.05em' },
+  'Apple': { icon: '', color: '#A2AAAD', weight: 600, letterSpacing: '-0.02em' },
+  'Aqara': { icon: '◉', color: '#FF6B35' },
+  'Bose': { icon: '🎵', color: '#000000', weight: 700, letterSpacing: '0.1em', transform: 'uppercase' },
+  'Garmin': { icon: '▲', color: '#0073C2', weight: 700 },
+  'Govee': { icon: '◆', color: '#5E17EB', weight: 700 },
+  'Jackery': { icon: '⚡', color: '#FF6B00', weight: 700, letterSpacing: '0.02em' },
+  'Logitech': { icon: '●', color: '#00B8FC', weight: 700 },
+  'Notion': { icon: '◼', color: '#FFFFFF', weight: 600 },
+  'Ring': { icon: '○', color: '#0066FF', weight: 700, letterSpacing: '0.05em' },
+  'Sennheiser': { icon: '🎧', color: '#000000', weight: 700, letterSpacing: '0.03em' },
+  'Sony': { icon: '', color: '#000000', weight: 800, letterSpacing: '0.2em', transform: 'uppercase' },
+  'TP-Link': { icon: '⊕', color: '#21A179', weight: 700 },
+  'eero': { icon: '◉', color: '#00B4D8', weight: 700 },
+};
+
+const style = BRAND_STYLES[brand] ?? { icon: '●', color: '#888' };
+const sizeMap = {
+  sm: { fontSize: '0.875rem', iconSize: '1rem', padding: '0.25rem 0.5rem' },
+  md: { fontSize: '1.25rem', iconSize: '1.5rem', padding: '0.5rem 0.75rem' },
+  lg: { fontSize: '1.75rem', iconSize: '2rem', padding: '0.75rem 1rem' },
+  xl: { fontSize: '2.5rem', iconSize: '3rem', padding: '1rem 1.5rem' },
+};
+const sz = sizeMap[size];
+---
+
+<div
+  class="brand-logo inline-flex items-center gap-2"
+  style={`font-size: ${sz.fontSize}; color: ${style.color}; font-weight: ${style.weight ?? 600}; letter-spacing: ${style.letterSpacing ?? '0'}; text-transform: ${style.transform ?? 'none'}; padding: ${sz.padding};`}
+>
+  {style.icon && <span style={`font-size: ${sz.iconSize}; line-height: 1;`}>{style.icon}</span>}
+  <span>{brand}</span>
+</div>

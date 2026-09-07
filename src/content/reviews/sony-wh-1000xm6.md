@@ -7,7 +7,7 @@ priceUsd: 449
 rating: 4.7
 releaseDate: 2026-06-20
 lastUpdated: 2026-09-02
-cover: "/_images/sony-wh-1000xm6.jpg"
+cover: "/images/_images/sony-wh-1000xm6.jpg"
 affiliate:
   url: "https://www.amazon.com?tag=uzinetwork20-20"
   network: "amazon"
