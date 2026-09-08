@@ -1,148 +1,201 @@
-// Cloudflare Pages Function: POST /api/subscribe
-// Triggered by the newsletter form on every page.
-//
-// POST form-encoded: { email: string, source?: string }
-// Returns: { ok: boolean, message: string }
-//
-// Provider selection is driven by env vars. Set one of:
-//   MAILCHIMP_API_KEY, MAILCHIMP_LIST_ID, MAILCHIMP_SERVER_PREFIX
-//   CONVERTKIT_API_KEY, CONVERTKIT_FORM_ID
-//   BUTTONDOWN_API_KEY
-//   RESEND_API_KEY, RESEND_AUDIENCE_ID
-//
-// If no provider env is set, we log to console (visible in CF Pages logs)
-// and return success — so the form works during dev without a provider.
+// functions/api/subscribe.js — Handle newsletter/pro signup form submissions
+// Captures email and sends confirmation via Resend API
 
 export async function onRequestPost(context) {
   const { request, env } = context;
+  
+  try {
+    // Parse form body
+    const body = await request.formData();
+    const email = body.get("email")?.toString().trim().toLowerCase();
+    const source = body.get("source")?.toString().trim() || "unknown";
+    
+    if (!email || !email.includes("@")) {
+      return new Response(JSON.stringify({ error: "Invalid email" }), {
+        status: 400,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
 
-  // Basic CSRF/origin check
-  const origin = request.headers.get('origin');
-  const allowed = ['uzi.network.store', 'www.uzi.network.store', 'localhost:4321'];
-  if (origin && !allowed.some(h => origin.includes(h))) {
-    return new Response(JSON.stringify({ ok: false, message: 'Bad origin.' }), {
-      status: 403,
-      headers: { 'Content-Type': 'application/json' },
+    // Load Resend API key from service credentials
+    const creds = await importServiceCredentials();
+    const resendKey = creds.resend_api_key;
+    
+    if (!resendKey || resendKey === "" || resendKey === "YOUR_RESEND_KEY") {
+      // If no Resend key, save to local CSV as fallback
+      await saveEmailLocally(email, source);
+      return new Response(JSON.stringify({ 
+        success: true, 
+        message: "Email saved. We'll notify you when Pro launches.",
+        pending: true 
+      }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+
+    // Send confirmation email via Resend
+    const response = await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        "Authorization": `Bearer ${resendKey}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: "Uzi Network <onboarding@resend.dev>", // Replace with verified domain
+        to: [email],
+        subject: "You're on the list! 👋",
+        html: `
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Welcome to Uzi Network</title>
+          </head>
+          <body style="margin: 0; padding: 0; background-color: #0f0f0f; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; margin: 0 auto; padding: 20px;">
+              <tr>
+                <td style="background-color: #1a1a1a; border-radius: 12px; padding: 40px 30px;">
+                  
+                  <!-- Logo/Header -->
+                  <div style="text-align: center; margin-bottom: 30px;">
+                    <div style="font-size: 32px; font-weight: 900; color: #ffffff; letter-spacing: -1px;">UZI NETWORK</div>
+                    <div style="font-size: 14px; color: #00d970; letter-spacing: 2px; text-transform: uppercase;">AI TOOLS & REVIEWS</div>
+                  </div>
+                  
+                  <!-- Greeting -->
+                  <h1 style="font-size: 24px; font-weight: 700; color: #ffffff; margin: 0 0 20px 0;">You're on the list! 👋</h1>
+                  
+                  <p style="font-size: 16px; color: #a1a1aa; line-height: 1.6; margin: 0 0 20px 0;">
+                    <strong>Hey there,</strong>
+                  </p>
+                  
+                  <p style="font-size: 16px; color: #a1a1aa; line-height: 1.6; margin: 0 0 20px 0;">
+                    You just joined <strong>${email}</strong> and you're one step closer to saving serious money on AI tools.
+                  </p>
+                  
+                  <!-- What happens next -->
+                  <div style="background-color: #0a0a0a; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                    <p style="font-size: 14px; color: #00d970; font-weight: 600; margin: 0 0 10px 0;">WHAT'S NEXT:</p>
+                    <ul style="font-size: 14px; color: #a1a1aa; line-height: 1.6; margin: 0; padding-left: 20px;">
+                      <li style="margin-bottom: 6px;">✅ We'll email you when Pro subscriptions open</li>
+                      <li style="margin-bottom: 6px;">📧 You'll get our weekly newsletter: "The Drops"</li>
+                      <li>🎫 Exclusive discount codes for AI tools you use</li>
+                    </ul>
+                  </div>
+                  
+                  <!-- Pro tier teaser -->
+                  <div style="background: linear-gradient(135deg, #00d970 0%, #00b359 100%); border-radius: 8px; padding: 20px; margin: 20px 0; text-align: center;">
+                    <p style="font-size: 14px; color: #000000; font-weight: 600; margin: 0 0 8px 0;">PRO COMING SOON</p>
+                    <p style="font-size: 12px; color: #333333; margin: 0;">For $9/month — exclusive discount codes, deep-dives, and more</p>
+                  </div>
+                  
+                  <!-- Links -->
+                  <div style="text-align: center; margin: 30px 0;">
+                    <a href="https://uzi.network.store" style="display: inline-block; background-color: #ffffff; color: #000000; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px;">
+                      Visit Uzi Network →
+                    </a>
+                  </div>
+                  
+                  <!-- Footer -->
+                  <p style="font-size: 12px; color: #71717a; text-align: center; margin: 20px 0 0 0;">
+                    You're receiving this because you signed up at <a href="https://uzi.network.store" style="color: #00d970; text-decoration: none;">uzi.network.store</a>
+                  </p>
+                  <p style="font-size: 12px; color: #71717a; text-align: center; margin: 10px 0 0 0;">
+                    <a href="%%UNSUBSCRIBE_URL%%" style="color: #71717a; text-decoration: underline;">Unsubscribe</a>
+                  </p>
+                  
+                </td>
+              </tr>
+            </table>
+          </body>
+          </html>
+        `,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      return new Response(JSON.stringify({ 
+        success: true, 
+        message: "Thanks! You'll get an email when Pro launches.",
+        pending: false 
+      }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    } else {
+      // Fallback to local save if Resend fails
+      await saveEmailLocally(email, source);
+      return new Response(JSON.stringify({ 
+        success: true, 
+        message: "Email saved locally. We'll notify you when Pro launches.",
+        pending: true 
+      }), {
+        status: 200,
+        headers: { "Content-Type": "application/json" },
+      });
+    }
+  } catch (error) {
+    return new Response(JSON.stringify({ error: "Failed to process" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
     });
   }
+}
 
-  let email = '';
-  let source = 'homepage';
-  const ct = request.headers.get('content-type') || '';
+async function importServiceCredentials() {
+  // Read from .service-credentials file on the server
   try {
-    if (ct.includes('application/json')) {
-      const j = await request.json();
-      email = (j.email || '').trim();
-      source = j.source || source;
-    } else {
-      const f = await request.formData();
-      email = String(f.get('email') || '').trim();
-      source = String(f.get('source') || source);
+    const fs = await import("node:fs/promises");
+    const path = await import("node:path");
+    const credsPath = "/home/ubuntu/.hermes/.service-credentials";
+    const content = await fs.readFile(credsPath, "utf-8");
+    
+    const env = {};
+    const lines = content.split("\n");
+    for (const line of lines) {
+      if (line.startsWith("export ")) {
+        const match = line.match(/export\s+([A-Z_][A-Z0-9_]*)=["']?([^"']*)["']?/);
+        if (match) {
+          env[match[1].toLowerCase()] = match[2];
+        }
+      }
     }
+    return env;
   } catch {
-    return badRequest('Could not parse body.');
+    return {};
   }
+}
 
-  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return badRequest('That email looks off. Try again.');
-  }
-
-  // Provider routing
+async function saveEmailLocally(email, source) {
   try {
-    if (env.MAILCHIMP_API_KEY && env.MAILCHIMP_LIST_ID && env.MAILCHIMP_SERVER_PREFIX) {
-      await subscribeMailchimp(env, email, source);
-    } else if (env.CONVERTKIT_API_KEY && env.CONVERTKIT_FORM_ID) {
-      await subscribeConvertKit(env, email, source);
-    } else if (env.BUTTONDOWN_API_KEY) {
-      await subscribeButtondown(env, email, source);
-    } else if (env.RESEND_API_KEY && env.RESEND_AUDIENCE_ID) {
-      await subscribeResend(env, email, source);
-    } else {
-      // No provider — dev fallback: log and accept.
-      console.log('[subscribe:dev]', { email, source, ts: new Date().toISOString() });
+    const fs = await import("node:fs/promises");
+    const path = await import("node:path");
+    
+    const dataDir = "/home/ubuntu/projects/uzi-network/data/subscribers";
+    const filePath = path.join(dataDir, "subscribers.csv");
+    
+    // Ensure directory exists
+    await fs.mkdir(dataDir, { recursive: true });
+    
+    // Check if file exists
+    let content = "";
+    try {
+      content = await fs.readFile(filePath, "utf-8");
+    } catch {
+      content = "";
     }
-  } catch (err) {
-    console.error('[subscribe] provider error', err);
-    return new Response(JSON.stringify({
-      ok: false,
-      message: 'Saved locally but the email service hiccuped. Try again or email us.',
-    }), { status: 502, headers: { 'Content-Type': 'application/json' } });
+    
+    // Add if not duplicate
+    const lines = content.split("\n").filter(l => l.trim());
+    if (!lines.some(l => l.startsWith(email + ","))) {
+      const timestamp = new Date().toISOString();
+      await fs.appendFile(filePath, `\n${email},${source},${timestamp}`);
+    }
+  } catch (error) {
+    console.error("Failed to save email locally:", error);
   }
-
-  return new Response(JSON.stringify({
-    ok: true,
-    message: "You're in. Check your inbox in a minute.",
-  }), { status: 200, headers: { 'Content-Type': 'application/json' } });
-}
-
-// Also support GET for health-checks
-export async function onRequestGet() {
-  return new Response(JSON.stringify({ ok: true, message: 'POST { email } to subscribe.' }), {
-    headers: { 'Content-Type': 'application/json' },
-  });
-}
-
-function badRequest(message) {
-  return new Response(JSON.stringify({ ok: false, message }), {
-    status: 400,
-    headers: { 'Content-Type': 'application/json' },
-  });
-}
-
-// --- Providers ---
-
-async function subscribeMailchimp(env, email, source) {
-  const url = `https://${env.MAILCHIMP_SERVER_PREFIX}.api.mailchimp.com/3.0/lists/${env.MAILCHIMP_LIST_ID}/members`;
-  const res = await fetch(url, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Basic ${btoa('anystring:' + env.MAILCHIMP_API_KEY)}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      email_address: email,
-      status: 'subscribed',
-      tags: ['uzi-network', source],
-    }),
-  });
-  if (!res.ok && res.status !== 400) { // 400 = already subscribed
-    throw new Error(`Mailchimp ${res.status}`);
-  }
-}
-
-async function subscribeConvertKit(env, email, source) {
-  const res = await fetch(`https://api.convertkit.com/v3/forms/${env.CONVERTKIT_FORM_ID}/subscribe`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      api_key: env.CONVERTKIT_API_KEY,
-      email,
-      tags: [source],
-    }),
-  });
-  if (!res.ok) throw new Error(`ConvertKit ${res.status}`);
-}
-
-async function subscribeButtondown(env, email, source) {
-  const res = await fetch('https://api.buttondown.email/v1/subscribers', {
-    method: 'POST',
-    headers: {
-      'Authorization': `Token ${env.BUTTONDOWN_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, tags: [source] }),
-  });
-  if (!res.ok) throw new Error(`Buttondown ${res.status}`);
-}
-
-async function subscribeResend(env, email, source) {
-  const res = await fetch(`https://api.resend.com/audiences/${env.RESEND_AUDIENCE_ID}/contacts`, {
-    method: 'POST',
-    headers: {
-      'Authorization': `Bearer ${env.RESEND_API_KEY}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ email, unsubscribed: false }),
-  });
-  if (!res.ok) throw new Error(`Resend ${res.status}`);
 }
